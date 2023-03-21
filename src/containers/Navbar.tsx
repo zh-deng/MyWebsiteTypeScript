@@ -32,8 +32,8 @@ const Navbar = () => {
                                 darkmode === true ? <CiSun /> : <MdOutlineDarkMode />
                             }
                         </div>
-                        <p><a href="#products">Produkte</a></p>
-                        <p><a href="#services">Services</a></p>
+                        <p><a href="#products">Produkte<span className="caret" /></a></p>
+                        <p><a href="#services">Services<span className="caret" /></a></p>
                         <p><a href="#company">Unternehmen</a></p>
                         <p><a href="#career">Karriere</a></p>
                         <p><a href="#impressum">Impressum</a></p>
@@ -58,7 +58,11 @@ const Navbar = () => {
                     </div>
                     <div className="navbar__content__links-container__symbol-container">
                         <div className="navbar__content__links-container__symbol-container__icons">
-                            <CiSun className="navbar__content__links-container__symbol-container__icons--sun" />
+                            <div className="navbar__content__links-container__symbol-container__icons--theme" onClick={handleThemeClick}>
+                                {
+                                    darkmode === true ? <CiSun /> : <MdOutlineDarkMode />
+                                }
+                            </div>
                             <MdOutlineLogin />
                             <div className="navbar__content__links-container__symbol-container__icons__country">
                                 {

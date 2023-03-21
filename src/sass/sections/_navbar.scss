@@ -26,7 +26,7 @@
         }
 
         &__links-container {
-            width: max(60%, 40rem);
+            width: max(60%, 50rem);
             @include util.flex-center;
             justify-content: flex-end;
 
@@ -57,12 +57,13 @@
                     }
                 }
 
-                @include util.breakpoint(medium) {
+                @include util.breakpoint(large) {
                     display: flex;
                     justify-content: space-evenly;
 
                     p {
                         @include util.margin-vertical(auto);
+                        cursor: pointer;
                     }
 
                     &__theme {
@@ -86,7 +87,7 @@
                 font-size: 3rem;
                 gap: 1rem;
 
-                @include util.breakpoint(medium) {
+                @include util.breakpoint(large) {
                     display: none;
                 }
 
@@ -100,7 +101,9 @@
                         cursor: pointer;
                     }
 
-                    &--sun {
+                    &--theme {
+                        @include util.flex-center;
+                        justify-content: center;
                         background-color: hsl(0, 0%, 50%);
                         border-radius: util.rem(20);
                         padding: 0;
