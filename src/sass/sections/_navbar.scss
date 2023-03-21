@@ -1,0 +1,136 @@
+@use "../util";
+@use "../globals";
+
+.navbar {
+    background-color: var(--secondary-color);
+    border-bottom: 1px solid;
+    padding: 0.5em 1rem;
+    @include util.breakpoint(medium) {
+        @include util.padding-horizontal(0.5em);
+    }
+    @include util.breakpoint(large) {
+        @include util.padding-horizontal(1em);
+    }
+    &__content {
+        @include util.flex-center;
+        justify-content: space-between;
+
+        &__logo {
+            @include util.flex-center;
+            justify-content: center;
+
+            img {
+                width: 7rem;
+                height: 3rem;
+            }
+        }
+
+        &__links-container {
+            width: max(60%, 40rem);
+            @include util.flex-center;
+            justify-content: flex-end;
+
+            &__web {
+                @include util.flex-center;
+                display: none;
+                width: 100%;
+
+                &__country {
+                    @include util.flex-center;
+                    justify-content: center;
+                    position: relative;
+                    @include util.padding-vertical(util.rem(10));
+
+                    &--hover {
+                        position: absolute;
+                        top: 3rem;
+                        display: none;
+                    }
+
+                    &:hover .navbar__content__links-container__web__country--hover {
+                        display: block;
+                    }
+
+                    img {
+                        width: util.rem(30);
+                        cursor: pointer;
+                    }
+                }
+
+                @include util.breakpoint(medium) {
+                    display: flex;
+                    justify-content: space-evenly;
+
+                    p {
+                        @include util.margin-vertical(auto);
+                    }
+
+                    &__theme {
+                        @include util.flex-center;
+                        justify-content: center;
+                        font-size: util.rem(30);
+                        background-color: hsl(0, 0%, 50%);
+                        border-radius: util.rem(20);
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            &__mobile {
+                display: none;
+            }
+
+            &__symbol-container {
+                @include util.flex-center;
+                justify-content: center;
+                font-size: 3rem;
+                gap: 1rem;
+
+                @include util.breakpoint(medium) {
+                    display: none;
+                }
+
+                &__icons {
+                    @include util.flex-center;
+                    font-size: util.rem(30);
+                    gap: util.rem(10);
+
+                    * {
+                        padding: util.rem(5);
+                        cursor: pointer;
+                    }
+
+                    &--sun {
+                        background-color: hsl(0, 0%, 50%);
+                        border-radius: util.rem(20);
+                        padding: 0;
+                    }
+
+                    img {
+                        width: util.rem(30);
+                    }
+
+                    &__country {
+                        @include util.flex-center;
+                        justify-content: center;
+                        position: relative;
+
+                        &--hover {
+                            position: absolute;
+                            top: 2.5rem;
+                            display: none;
+                        }
+
+                        &:hover .navbar__content__links-container__symbol-container__icons__country--hover {
+                            display: block;
+                        }
+                    }
+                }
+
+                &__hamburger {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
