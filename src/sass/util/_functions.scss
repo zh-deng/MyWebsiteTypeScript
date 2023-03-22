@@ -2,7 +2,7 @@
 
 
 // pixel to rem converter
-@function rem ($pixel) {
+@function rem($pixel) {
     @if math.is-unitless($pixel) {
         @return math.div($pixel, 16) + rem;
     } @else {

@@ -7,17 +7,31 @@ import { MdOutlineLogin, MdOutlineDarkMode } from "react-icons/md";
 import { CiSun } from "react-icons/ci";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { selectLanguageswitch, switchLanguage } from "../redux/features/languageswitchSlice";
-import { selectdarkmode, toggleDarkmode } from "../redux/features/darkmodeSlice";
+import { selectdarkmode, changeAnimation, toggleDarkmode } from "../redux/features/darkmodeSlice";
 
 const Navbar = () => {
     const { defaultLanguage } = useAppSelector(selectLanguageswitch);
-    const { darkmode } = useAppSelector(selectdarkmode);
+    const { animation, darkmode } = useAppSelector(selectdarkmode);
     const dispatch = useAppDispatch();
     const handleCountryClick = () => {
         dispatch(switchLanguage());
     }
     const handleThemeClick = () => {
-        dispatch(toggleDarkmode());
+        dispatch(changeAnimation("zoomOut"));
+        setTimeout(() => {
+            dispatch(toggleDarkmode());
+            dispatch(changeAnimation("zoomIn"));
+        }, 1000);
+    }
+    const handleThemeAnimation:() => string = () => {
+        switch(animation) {
+            case "zoomOut":
+                return "navbar__content__links-container__web__theme--zoomOut";
+            case "zoomIn":
+                return "navbar__content__links-container__web__theme--zoomIn";
+            default:
+                return "";
+        }
     }
     return (
         <div className="navbar">
@@ -29,7 +43,9 @@ const Navbar = () => {
                     <div className="navbar__content__links-container__web">
                         <div className="navbar__content__links-container__web__theme" onClick={handleThemeClick}>
                             {
-                                darkmode === true ? <CiSun /> : <MdOutlineDarkMode />
+                                darkmode === true ?
+                                <CiSun className={handleThemeAnimation()} /> :
+                                <MdOutlineDarkMode className={handleThemeAnimation()} />
                             }
                         </div>
                         <p><a href="#products">Produkte<span className="caret" /></a></p>
