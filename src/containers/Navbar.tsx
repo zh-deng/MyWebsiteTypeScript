@@ -1,55 +1,62 @@
 import React from "react";
-import companyLogo from "../assets/logo_transparent.png";
+import companyLogo_bright from "../assets/logo/logo_transparent.png";
+import companyLogo_dark from "../assets/logo/logo_transparent_dark.png"
 import germanFlag from "../assets/countryFlag/germany.png";
 import ukFlag from "../assets/countryFlag/uk.png";
 import { FiMenu } from "react-icons/fi";
-import { MdOutlineLogin, MdOutlineDarkMode } from "react-icons/md";
-import { CiSun } from "react-icons/ci";
+import { MdOutlineLogin } from "react-icons/md";
+import { ImCross } from "react-icons/im";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { selectLanguageswitch, switchLanguage } from "../redux/features/languageswitchSlice";
-import { selectdarkmode, changeAnimation, toggleDarkmode } from "../redux/features/darkmodeSlice";
+import { selectDarkmode } from "../redux/features/darkmodeSlice";
+import Darkmodeswitch from "../components/Darkmodeswitch";
+import { selectMobileswitch, toggleMobile } from "../redux/features/mobileswitchSlice";
 
 const Navbar = () => {
     const { defaultLanguage } = useAppSelector(selectLanguageswitch);
-    const { animation, darkmode } = useAppSelector(selectdarkmode);
+    const { darkmode } = useAppSelector(selectDarkmode);
+    const { mobile } = useAppSelector(selectMobileswitch);
     const dispatch = useAppDispatch();
+
     const handleCountryClick = () => {
         dispatch(switchLanguage());
     }
-    const handleThemeClick = () => {
-        dispatch(changeAnimation("zoomOut"));
-        setTimeout(() => {
-            dispatch(toggleDarkmode());
-            dispatch(changeAnimation("zoomIn"));
-        }, 1000);
+
+    const handleMobileClick = () => {
+        dispatch(toggleMobile());
     }
-    const handleThemeAnimation:() => string = () => {
-        switch(animation) {
-            case "zoomOut":
-                return "navbar__content__links-container__web__theme--zoomOut";
-            case "zoomIn":
-                return "navbar__content__links-container__web__theme--zoomIn";
-            default:
-                return "";
-        }
-    }
+
     return (
         <div className="navbar">
             <div className="navbar__content">
                 <div className="navbar__content__logo">
-                    <img src={companyLogo} alt="Company Logo"/>
+                    {
+                        darkmode === true ? <img src={companyLogo_bright} alt="Company Logo"/> : <img src={companyLogo_dark} alt="Company Logo"/>  
+                    }
                 </div>
                 <div className="navbar__content__links-container">
                     <div className="navbar__content__links-container__web">
-                        <div className="navbar__content__links-container__web__theme" onClick={handleThemeClick}>
-                            {
-                                darkmode === true ?
-                                <CiSun className={handleThemeAnimation()} /> :
-                                <MdOutlineDarkMode className={handleThemeAnimation()} />
-                            }
+                        <div className="navbar__content__links-container__web--darkmode">
+                            <Darkmodeswitch />
                         </div>
-                        <p><a href="#products">Produkte<span className="caret" /></a></p>
-                        <p><a href="#services">Services<span className="caret" /></a></p>
+                        <div className="navbar__content__links-container__web__container">
+                            <p><a href="#products">Produkte<span className="caret" /></a></p>
+                            <div className="navbar__content__links-container__web__container--expand">
+                                <p><a href="#tbd"></a>Produkt 1</p>
+                                <p><a href="#tbd"></a>Produkt 2</p>
+                                <p><a href="#tbd"></a>Produkt 3</p>
+                                <p><a href="#tbd"></a>Produkt 4</p>
+                                <p><a href="#tbd"></a>Produkt 5</p>
+                            </div>
+                        </div>
+                        <div className="navbar__content__links-container__web__container">
+                            <p><a href="#services">Services<span className="caret" /></a></p>
+                            <div className="navbar__content__links-container__web__container--expand">
+                                <p><a href="#tbd"></a>Service A</p>
+                                <p><a href="#tbd"></a>Produkt B</p>
+                                <p><a href="#tbd"></a>Produkt C</p>
+                            </div>
+                        </div>
                         <p><a href="#company">Unternehmen</a></p>
                         <p><a href="#career">Karriere</a></p>
                         <p><a href="#impressum">Impressum</a></p>
@@ -65,19 +72,23 @@ const Navbar = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="navbar__content__links-container__mobile">
-                        <p><a href="#products">Produkte</a></p>
-                        <p><a href="#services">Services</a></p>
+                    <div className={mobile === true ? "navbar__content__links-container__mobile" : "invisible"}>
+                        <div className="navbar__content__links-container__mobile__exit">
+                            <span onClick={handleMobileClick}>
+                                <p>Schließen</p>
+                                <ImCross />
+                            </span>
+                        </div>
+                        <p><a href="#products">Produkte<span className="caret" /></a></p>
+                        <p><a href="#services">Services<span className="caret" /></a></p>
                         <p><a href="#company">Unternehmen</a></p>
                         <p><a href="#career">Karriere</a></p>
                         <p><a href="#impressum">Impressum</a></p>
                     </div>
                     <div className="navbar__content__links-container__symbol-container">
                         <div className="navbar__content__links-container__symbol-container__icons">
-                            <div className="navbar__content__links-container__symbol-container__icons--theme" onClick={handleThemeClick}>
-                                {
-                                    darkmode === true ? <CiSun /> : <MdOutlineDarkMode />
-                                }
+                            <div className="navbar__content__links-container__symbol-container__icons--darkmode">
+                                <Darkmodeswitch />
                             </div>
                             <MdOutlineLogin />
                             <div className="navbar__content__links-container__symbol-container__icons__country">
@@ -91,7 +102,7 @@ const Navbar = () => {
                                 </div>
                             </div>
                         </div>
-                        <FiMenu className="navbar__content__links-container__symbol-container__hamburger" />
+                        <FiMenu className="navbar__content__links-container__symbol-container__hamburger" onClick={handleMobileClick}/>
                     </div>
                 </div>
             </div>

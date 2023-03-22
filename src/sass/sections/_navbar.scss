@@ -11,6 +11,7 @@
     @include util.breakpoint(large) {
         @include util.padding-horizontal(1em);
     }
+
     &__content {
         @include util.flex-center;
         justify-content: space-between;
@@ -18,6 +19,7 @@
         &__logo {
             @include util.flex-center;
             justify-content: center;
+            cursor: pointer;
 
             img {
                 width: 7rem;
@@ -29,21 +31,72 @@
             width: max(60%, 50rem);
             @include util.flex-center;
             justify-content: flex-end;
-
+            
             &__web {
                 @include util.flex-center;
                 display: none;
                 width: 100%;
 
+                &__container {
+                    position: relative;
+                    padding: util.rem(10) util.rem(15);
+
+                    &--expand {
+                        display: none;
+                        
+                    }
+
+                    &:hover .navbar__content__links-container__web__container--expand {
+                        position: absolute;
+                        @include util.flex-center-all;
+                        flex-direction: column;
+                        background-color: var(--secondary-color);
+                        width: util.rem(200);
+                        top: util.rem(45);
+                        left: 50%;
+                        transform: translate(-50%);
+                        @include util.padding-vertical(util.rem(5));
+                        border: 1px solid;
+
+                        & p {
+                            padding: util.rem(5);
+                            width: 100%;
+                            text-align: center;
+                            transition: 0.4s;
+
+                            &:hover {
+                                background-color: var(--hover-color);
+                            }
+                        }
+                    }
+                }
+
+                &--darkmode {
+                    padding: util.rem(5);
+                    border-radius: 10px;
+                    transition: 0.3s;
+
+                    &:hover {
+                        background-color: var(--hover-color);
+                    }
+                }
+
                 &__country {
                     @include util.flex-center;
                     justify-content: center;
                     position: relative;
-                    @include util.padding-vertical(util.rem(10));
+                    padding: util.rem(5);
+                    border-radius: 10px;
+                    transition: 0.3s;
+
+                    &:hover {
+                        background-color: var(--hover-color);
+                    }
 
                     &--hover {
                         position: absolute;
-                        top: 3rem;
+                        top: util.rem(40);
+                        padding: 10px;
                         display: none;
                     }
 
@@ -66,27 +119,56 @@
                         cursor: pointer;
                     }
 
-                    &__theme {
-                        @include util.flex-center;
-                        justify-content: center;
-                        width: util.rem(30);
-                        height: util.rem(30);
-                        font-size: util.rem(30);
-                        background-color: hsl(0, 0%, 50%);
-                        border-radius: util.rem(20);
-                        cursor: pointer;
-                        &--zoomOut {
-                            @include util.zoomOut();
-                        }
-                        &--zoomIn {
-                            @include util.zoomIn();
-                        }
+                    a:hover {
+                        text-decoration: underline;
+                        text-underline-offset: util.rem(5);
                     }
                 }
             }
 
             &__mobile {
-                display: none;
+                position: absolute;
+                @include util.flex-center;
+                flex-direction: column;
+                backdrop-filter: blur(util.rem(5));
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 99;
+                font-size: util.rem(35);
+                
+                & > * {
+                    width: 100%;
+                    border-bottom: 1px solid;
+                    text-align: center
+                }
+
+                &__exit {
+                    @include util.flex-center;
+                    justify-content: flex-end;
+                    cursor: pointer;
+
+                    & span {
+                        @include util.flex-center-all;
+                        border-radius: util.rem(10);
+                        margin: util.rem(5);
+                        transition: 0.3s;
+
+                        &:hover {
+                            background-color: var(--hover-color);
+                        }
+
+                        & > * {
+                            font-size: util.rem(30);
+                            padding: util.rem(10);
+                        }
+
+                        p {
+                            font-size: util.rem(20);
+                        }
+                    }
+                }
             }
 
             &__symbol-container {
@@ -104,17 +186,15 @@
                     font-size: util.rem(30);
                     gap: util.rem(10);
 
-                    * {
+                    & > * {
                         padding: util.rem(5);
                         cursor: pointer;
-                    }
+                        transition: 0.3s;
+                        border-radius: 10px;
 
-                    &--theme {
-                        @include util.flex-center;
-                        justify-content: center;
-                        background-color: hsl(0, 0%, 50%);
-                        border-radius: util.rem(20);
-                        padding: 0;
+                        &:hover {
+                            background-color: var(--hover-color);
+                        }
                     }
 
                     img {
@@ -140,6 +220,12 @@
 
                 &__hamburger {
                     cursor: pointer;
+                    border-radius: util.rem(10);
+                    transition: 0.3s;
+
+                    &:hover {
+                        background-color: var(--hover-color);
+                    }
                 }
             }
         }

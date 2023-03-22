@@ -3,4 +3,12 @@
     --text-color: white;
     --primary-color: darkblue;
     --secondary-color: black;
+    --hover-color: hsl(0, 0%, 68%)
+}
+
+.dark-theme {
+    --background-color: white;
+    --text-color: black;
+    --primary-color: darkblue;
+    --secondary-color: white;
 }

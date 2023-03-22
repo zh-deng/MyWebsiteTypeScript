@@ -25,6 +25,12 @@
     align-items: center;
 }
 
+@mixin flex-center-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @mixin animate($animation, $duration, $method, $times) {
     animation: $animation $duration $method $times;
 }

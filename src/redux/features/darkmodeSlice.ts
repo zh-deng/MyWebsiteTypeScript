@@ -13,6 +13,7 @@ export const darkmodeSlice = createSlice({
     reducers: {
         toggleDarkmode: (state) => {
             state.darkmode = state.darkmode === false ? true : false;
+            document.body.classList.toggle("dark-theme");
         },
         changeAnimation: (state, action: PayloadAction<string>) => {
             state.animation = action.payload;
@@ -20,7 +21,7 @@ export const darkmodeSlice = createSlice({
     }
 });
 
-export const selectdarkmode = (state: RootState) => state.darkmode;
+export const selectDarkmode = (state: RootState) => state.darkmode;
 
 export const { changeAnimation, toggleDarkmode } = darkmodeSlice.actions;
 

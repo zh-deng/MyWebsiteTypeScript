@@ -12,3 +12,7 @@ body {
     color: var(--text-color);
     font-family: util.$font;
 }
+
+.invisible {
+    display: none;
+}
