@@ -3,43 +3,43 @@
 @mixin margin-horizontal($value){
     margin-left: $value;
     margin-right: $value;
-}
+};
 
 @mixin margin-vertical($value){
     margin-top: $value;
     margin-bottom: $value;
-}
+};
 
 @mixin padding-horizontal($value){
     padding-left: $value;
     padding-right: $value;
-}
+};
 
 @mixin padding-vertical($value){
     padding-top: $value;
     padding-bottom: $value;
-}
+};
 
 @mixin flex-center {
     display: flex;
     align-items: center;
-}
+};
 
 @mixin flex-center-all {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+};
 
 @mixin animate($animation, $duration, $method, $times) {
     animation: $animation $duration $method $times;
-}
+};
 
 @mixin keyframes($name) {
     @keyframes #{$name} {
         @content;
-    }
-}
+    };
+};
 
 @mixin zoomOut() {
     @include keyframes(zoom_out) {
@@ -51,7 +51,7 @@
         }
     };
     @include animate(zoom_out, 1.1s, linear, 1);
-}
+};
 
 @mixin zoomIn() {
     @include keyframes(zoom_in) {
@@ -63,4 +63,28 @@
         }
     };
     @include animate(zoom_in, 1.1s, linear, 1);
-}
+};
+
+@mixin fadeIn {
+    @include keyframes(fadeIn) {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    };
+    @include animate(fadeIn, 4s, ease, 1);
+};
+
+@mixin growLeft {
+    @include keyframes(growLeft) {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    };
+    @include animate(growLeft, 2s, linear, 1)
+};

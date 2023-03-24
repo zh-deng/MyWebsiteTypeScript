@@ -11,6 +11,7 @@ import { selectLanguageswitch, switchLanguage } from "../redux/features/language
 import { selectDarkmode } from "../redux/features/darkmodeSlice";
 import Darkmodeswitch from "../components/Darkmodeswitch";
 import { selectMobileswitch, toggleMobile } from "../redux/features/mobileswitchSlice";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const { defaultLanguage } = useAppSelector(selectLanguageswitch);
@@ -29,39 +30,41 @@ const Navbar = () => {
     return (
         <div className="navbar">
             <div className="navbar__content">
-                <div className="navbar__content__logo">
-                    {
-                        darkmode === true ? <img src={companyLogo_bright} alt="Company Logo"/> : <img src={companyLogo_dark} alt="Company Logo"/>  
-                    }
-                </div>
+                <Link to="/">
+                    <div className="navbar__content__logo">
+                        {
+                            darkmode === true ? <img src={companyLogo_bright} alt="Company Logo"/> : <img src={companyLogo_dark} alt="Company Logo"/>
+                        }
+                    </div>
+                </Link>
                 <div className="navbar__content__links-container">
                     <div className="navbar__content__links-container__web">
                         <div className="navbar__content__links-container__web--darkmode">
                             <Darkmodeswitch />
                         </div>
                         <div className="navbar__content__links-container__web__container">
-                            <p><a href="#products">Produkte<span className="caret" /></a></p>
+                            <Link to="/Produkte"><p>Produkte<span className="caret" /></p></Link>
                             <div className="navbar__content__links-container__web__container--expand">
-                                <p><a href="#tbd"></a>Produkt 1</p>
-                                <p><a href="#tbd"></a>Produkt 2</p>
-                                <p><a href="#tbd"></a>Produkt 3</p>
-                                <p><a href="#tbd"></a>Produkt 4</p>
-                                <p><a href="#tbd"></a>Produkt 5</p>
+                                <Link to=""><p>Produkt 1</p></Link>
+                                <Link to=""><p>Produkt 2</p></Link>
+                                <Link to=""><p>Produkt 3</p></Link>
+                                <Link to=""><p>Produkt 4</p></Link>
+                                <Link to=""><p>Produkt 5</p></Link>
                             </div>
                         </div>
                         <div className="navbar__content__links-container__web__container">
-                            <p><a href="#services">Services<span className="caret" /></a></p>
+                            <Link to="/Services"><p>Services<span className="caret" /></p></Link>
                             <div className="navbar__content__links-container__web__container--expand">
-                                <p><a href="#tbd"></a>Service A</p>
-                                <p><a href="#tbd"></a>Produkt B</p>
-                                <p><a href="#tbd"></a>Produkt C</p>
+                                <Link to=""><p>Service A</p></Link>
+                                <Link to=""><p>Service B</p></Link>
+                                <Link to=""><p>Service C</p></Link>
                             </div>
                         </div>
-                        <p><a href="#company">Unternehmen</a></p>
-                        <p><a href="#career">Karriere</a></p>
-                        <p><a href="#impressum">Impressum</a></p>
-                        <p><a href="#login">Login</a></p>
-                        <div className="navbar__content__links-container__web__country">
+                        <Link to="/Unternehmen"><p>Unternehmen</p></Link>
+                        <Link to="/Karriere"><p>Karriere</p></Link>
+                        <Link to="/Impressum"><p>Impressum</p></Link>
+                        <Link to="/Login"><p>Login</p></Link>
+                        <div className="navbar__content__links-container__web__country" data-current={defaultLanguage === true ? "DE" : "EN"}>
                             {
                                 defaultLanguage === true ? <img src={germanFlag} alt="German Flag"/> : <img src={ukFlag} alt="British Flag"/>
                             }
@@ -79,11 +82,11 @@ const Navbar = () => {
                                 <ImCross />
                             </span>
                         </div>
-                        <p><a href="#products">Produkte<span className="caret" /></a></p>
-                        <p><a href="#services">Services<span className="caret" /></a></p>
-                        <p><a href="#company">Unternehmen</a></p>
-                        <p><a href="#career">Karriere</a></p>
-                        <p><a href="#impressum">Impressum</a></p>
+                        <Link to="/Produkte"><p>Produkte<span className="caret" /></p></Link>
+                        <Link to="/Services"><p>Services<span className="caret" /></p></Link>
+                        <Link to="/Unternehmen"><p>Unternehmen</p></Link>
+                        <Link to="/Karriere"><p>Karriere</p></Link>
+                        <Link to="/Impressum"><p>Impressum</p></Link>
                     </div>
                     <div className="navbar__content__links-container__symbol-container">
                         <div className="navbar__content__links-container__symbol-container__icons">
@@ -91,15 +94,10 @@ const Navbar = () => {
                                 <Darkmodeswitch />
                             </div>
                             <MdOutlineLogin />
-                            <div className="navbar__content__links-container__symbol-container__icons__country">
+                            <div className="navbar__content__links-container__symbol-container__icons__country" onClick={handleCountryClick} data-current={defaultLanguage === true ? "DE" : "EN"}>
                                 {
                                     defaultLanguage === true ? <img src={germanFlag} alt="German Flag"/> : <img src={ukFlag} alt="British Flag"/>
                                 }
-                                <div className="navbar__content__links-container__symbol-container__icons__country--hover" onClick={handleCountryClick}>
-                                    {
-                                        defaultLanguage === false ? <img src={germanFlag} alt="German Flag"/> : <img src={ukFlag} alt="British Flag"/>
-                                    }
-                                </div>
                             </div>
                         </div>
                         <FiMenu className="navbar__content__links-container__symbol-container__hamburger" onClick={handleMobileClick}/>
@@ -107,7 +105,7 @@ const Navbar = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;

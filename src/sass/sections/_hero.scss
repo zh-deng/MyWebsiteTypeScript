@@ -1,0 +1,65 @@
+ @use "../util";
+
+.hero {
+    width: 100%;
+    height: util.rem(700);
+    background-image: url(../../assets//hero/hero_background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    @include util.breakpoint(large) {
+        height: util.rem(800);
+    };
+
+    &__content {
+        @include util.flex-center-all;
+        flex-direction: column;
+        color: black;
+        width: min(90%, util.rem(500));
+        padding: util.rem(60) util.rem(20);
+        font-size: util.rem(18);
+        @include util.margin-horizontal(auto);
+
+        @include util.breakpoint(medium) {
+            @include util.padding-vertical(util.rem(80));
+            margin-left: 7%;
+            font-size: util.rem(22);
+        }
+
+        @include util.breakpoint(large) {
+            font-size: util.rem(30);
+            margin-left: 10%;
+        }
+
+        &__heading {
+            margin: 1rem;
+            @include util.fadeIn;
+        }
+
+        &__slogan p {
+            text-align: center;
+            font-weight: 700;
+            @include util.fadeIn;
+        }
+
+        &__button {
+            margin: 1.5rem;
+            @include util.growLeft;
+
+            & a {
+            background-color: var(--button-color);
+            padding: 10px 15px;
+            border-radius: 10px;
+            
+            &:hover {
+                background-color: var(--button-color-hover);
+                box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.523);
+            }
+            }
+        }
+    }
+}

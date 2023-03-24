@@ -1,0 +1,76 @@
+@use "../util";
+
+.footer {
+    background-color: var(--secondary-color);
+    @include util.padding-vertical(util.rem(25));
+    @include util.flex-center-all;
+    
+    &__content {
+        width: 100%;
+        @include util.flex-center-all;
+        flex-direction: column;
+
+        &__socials {
+            width: min(util.rem(1100), 100%);
+            @include util.flex-center;
+            justify-content: flex-end;
+            font-size: 2rem;
+            gap: 2rem;
+            border-bottom: 1px solid;
+            padding: util.rem(15);
+
+            &__icons {
+                @include util.flex-center-all;
+                gap: 1rem;
+                font-size: 2.5rem;
+                
+                & > * {
+                    opacity: 0.7;
+                    cursor: pointer;
+                    @include util.flex-center-all;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        &__links-container {
+            @include util.flex-center-all;
+            background-color: rgba(128, 128, 128, 0.167);
+            width: 100%;
+            padding: util.rem(10);
+
+             &__column {
+                width: min(95%, util.rem(1100));
+                padding: util.rem(10);
+                @include util.flex-center;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                gap: 20px;
+
+                & > * {
+                    width: max(30%, util.rem(250));
+                    padding: 10px;
+                    @include util.flex-center-all;
+                    flex-direction: column;
+                    gap: util.rem(10);
+
+                    a:hover {
+                        text-decoration: underline;
+                        text-underline-offset: 0.2rem;
+                        
+                    }
+                }
+
+             }
+        }
+
+        &__copyright {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-top: util.rem(20);
+        }
+    }
+}

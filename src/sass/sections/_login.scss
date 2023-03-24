@@ -1,0 +1,35 @@
+@use "../util";
+
+.login {
+    height: util.rem(900);
+    @include util.flex-center-all;
+
+    &__content {
+        background-color: rgb(183, 183, 183);
+        height: util.rem(800);
+        width: 70%;
+        border-radius: util.rem(50);
+        padding: util.rem(10);
+        @include util.flex-center;
+        justify-content: space-between;
+
+        &__left {
+            width: 50%;
+            height: 100%;
+            border-top-left-radius: util.rem(40);
+            border-bottom-left-radius: util.rem(40);
+            background-color: darkgrey;
+            padding: util.rem(20);
+        }
+
+        &__right {
+            width: 50%;
+            height: 100%;
+            border-top-right-radius: util.rem(40);
+            border-bottom-right-radius: util.rem(40);
+            background-color: rgb(50, 168, 50);
+            padding: util.rem(20);
+        }
+
+    }
+}

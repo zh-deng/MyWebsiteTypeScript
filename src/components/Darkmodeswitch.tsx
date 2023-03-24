@@ -14,7 +14,7 @@ const Darkmodeswitch = () => {
             dispatch(toggleDarkmode());
             dispatch(changeAnimation("zoomIn"));
         }, 1000);
-    }
+    };
 
     const handleThemeAnimation:() => string = () => {
         switch(animation) {
@@ -25,7 +25,8 @@ const Darkmodeswitch = () => {
             default:
                 return "";
         }
-    }
+    };
+    
     return (
         <div className="darkmodeswitch" onClick={handleThemeClick}>
             {
@@ -34,7 +35,7 @@ const Darkmodeswitch = () => {
                 <MdOutlineDarkMode className={handleThemeAnimation()} />
             }
         </div>
-    )
+    );
 };
 
 export default Darkmodeswitch;

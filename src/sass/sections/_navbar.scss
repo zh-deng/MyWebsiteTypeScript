@@ -5,9 +5,12 @@
     background-color: var(--secondary-color);
     border-bottom: 1px solid;
     padding: 0.5em 1rem;
-    @include util.breakpoint(medium) {
-        @include util.padding-horizontal(0.5em);
-    }
+    position: fixed;
+    width: 100%;
+    top: 0;
+    @include util.flex-center;
+    height: 5rem;
+    
     @include util.breakpoint(large) {
         @include util.padding-horizontal(1em);
     }
@@ -15,10 +18,11 @@
     &__content {
         @include util.flex-center;
         justify-content: space-between;
+        width: 100%;
 
         &__logo {
             @include util.flex-center;
-            justify-content: center;
+            justify-content: flex-start;
             cursor: pointer;
 
             img {
@@ -39,7 +43,7 @@
 
                 &__container {
                     position: relative;
-                    padding: util.rem(10) util.rem(15);
+                    padding: util.rem(15) util.rem(15);
 
                     &--expand {
                         display: none;
@@ -52,21 +56,32 @@
                         flex-direction: column;
                         background-color: var(--secondary-color);
                         width: util.rem(200);
-                        top: util.rem(45);
+                        top: util.rem(50);
                         left: 50%;
                         transform: translate(-50%);
                         @include util.padding-vertical(util.rem(5));
                         border: 1px solid;
+
+                        & a {
+                            text-decoration: none;
+                        }
+
+                        & > * {
+                            width: 100%;
+                            @include util.flex-center-all;
+                            box-sizing: content-box;
+                            @include util.padding-horizontal(util.rem(5));
+
+                            &:hover {
+                                background-color: var(--hover-color);
+                            }
+                        }
 
                         & p {
                             padding: util.rem(5);
                             width: 100%;
                             text-align: center;
                             transition: 0.4s;
-
-                            &:hover {
-                                background-color: var(--hover-color);
-                            }
                         }
                     }
                 }
@@ -89,6 +104,11 @@
                     border-radius: 10px;
                     transition: 0.3s;
 
+                    &::after {
+                        content: attr(data-current);
+                        padding: util.rem(5);
+                    }
+
                     &:hover {
                         background-color: var(--hover-color);
                     }
@@ -96,7 +116,8 @@
                     &--hover {
                         position: absolute;
                         top: util.rem(40);
-                        padding: 10px;
+                        left: util.rem(-5);
+                        padding: util.rem(10);
                         display: none;
                     }
 
@@ -122,6 +143,7 @@
                     a:hover {
                         text-decoration: underline;
                         text-underline-offset: util.rem(5);
+                        text-decoration-thickness: 0.1rem;
                     }
                 }
             }
@@ -175,7 +197,7 @@
                 @include util.flex-center;
                 justify-content: center;
                 font-size: 3rem;
-                gap: 1rem;
+                gap: 0.5rem;
 
                 @include util.breakpoint(large) {
                     display: none;
@@ -183,7 +205,7 @@
 
                 &__icons {
                     @include util.flex-center;
-                    font-size: util.rem(30);
+                    font-size: util.rem(40);
                     gap: util.rem(10);
 
                     & > * {
@@ -206,14 +228,10 @@
                         justify-content: center;
                         position: relative;
 
-                        &--hover {
-                            position: absolute;
-                            top: 2.5rem;
-                            display: none;
-                        }
-
-                        &:hover .navbar__content__links-container__symbol-container__icons__country--hover {
-                            display: block;
+                        &::after {
+                            content: attr(data-current);
+                            padding: util.rem(5);
+                            font-size: util.rem(20);
                         }
                     }
                 }

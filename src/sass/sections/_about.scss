@@ -1,0 +1,13 @@
+@use "../util";
+
+.about {
+    height: 1000px;
+    padding: 50px;
+    @include util.flex-center-all;
+
+    &__content {
+        width: 60%;
+        height: 100%;
+        background-color: yellow;
+    }
+}

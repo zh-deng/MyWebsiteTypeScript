@@ -1,9 +1,11 @@
 :root {
-    --background-color: darkblue;
+    --background-color: rgb(0, 0, 61);
     --text-color: white;
     --primary-color: darkblue;
     --secondary-color: black;
-    --hover-color: hsl(0, 0%, 68%)
+    --hover-color: hsl(0, 0%, 68%);
+    --button-color: blue;
+    --button-color-hover: darkblue;
 }
 
 .dark-theme {
@@ -11,4 +13,6 @@
     --text-color: black;
     --primary-color: darkblue;
     --secondary-color: white;
+    --button-color: orange;
+    --button-color-hover: darkorange;
 }
