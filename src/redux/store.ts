@@ -1,13 +1,15 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import languageswitchReducer from "./features/languageswitchSlice";
 import darkmodeReducer from "./features/darkmodeSlice";
-import mobileswitchReducer from "./features/mobileswitchSlice"
+import mobileswitchReducer from "./features/mobileswitchSlice";
+import uiReducer from "./features/uiSlice";
 
 export const store = configureStore({
   reducer: {
     darkmode: darkmodeReducer,
     languageswitch: languageswitchReducer,
-    mobileswitch: mobileswitchReducer
+    mobileswitch: mobileswitchReducer,
+    ui: uiReducer
   },
 });
 

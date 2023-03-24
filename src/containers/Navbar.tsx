@@ -93,7 +93,9 @@ const Navbar = () => {
                             <div className="navbar__content__links-container__symbol-container__icons--darkmode">
                                 <Darkmodeswitch />
                             </div>
-                            <MdOutlineLogin />
+                            <Link to="/Login">
+                                <MdOutlineLogin />
+                            </Link>
                             <div className="navbar__content__links-container__symbol-container__icons__country" onClick={handleCountryClick} data-current={defaultLanguage === true ? "DE" : "EN"}>
                                 {
                                     defaultLanguage === true ? <img src={germanFlag} alt="German Flag"/> : <img src={ukFlag} alt="British Flag"/>
