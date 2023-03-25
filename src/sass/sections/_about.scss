@@ -1,13 +1,11 @@
 @use "../util";
 
 .about {
-    height: 1000px;
-    padding: 50px;
+    @include util.dimensions(util.rem(1000), util.rem(50));
     @include util.flex-center-all;
 
     &__content {
-        width: 60%;
-        height: 100%;
+        @include util.dimensions(60%, 100%);
         background-color: yellow;
     }
 }

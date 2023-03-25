@@ -3,13 +3,15 @@ import languageswitchReducer from "./features/languageswitchSlice";
 import darkmodeReducer from "./features/darkmodeSlice";
 import mobileswitchReducer from "./features/mobileswitchSlice";
 import uiReducer from "./features/uiSlice";
+import jobsettingsReducer from "./features/jobsettingsSlice";
 
 export const store = configureStore({
   reducer: {
     darkmode: darkmodeReducer,
     languageswitch: languageswitchReducer,
     mobileswitch: mobileswitchReducer,
-    ui: uiReducer
+    ui: uiReducer,
+    jobsettings: jobsettingsReducer,
   },
 });
 

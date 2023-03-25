@@ -1,9 +1,11 @@
 @use "../util";
 
 .registration {
-    height: 600px;
-    background-color: rgba(128, 128, 128, 0.167);
+    height: util.rem(600);
+    // background-color: rgba(128, 128, 128, 0.167);
+    background-color: rgb(106, 96, 96);
     @include util.flex-center-all;
+    color: var(--login-text-color);
 
     @include util.breakpoint(large) {
         height: util.rem(800);
@@ -11,15 +13,13 @@
     }
 
     &__content {
-        width: 90%;
-        height: 80%;
+        @include util.dimensions(90%, 80%);
         @include util.flex-center-all;
         padding: util.rem(10);
 
         @include util.breakpoint(large) {
             background-color: rgb(183, 183, 183);
-            height: util.rem(700);
-            width: util.rem(1000);
+            @include util.dimensions(util.rem(1000), util.rem(700));
             border-radius: util.rem(50);
             padding: util.rem(10);
             justify-content: space-between;
@@ -28,8 +28,7 @@
         &__left {
 
             @include util.breakpoint(large) {
-                width: 50%;
-                height: 100%;
+                @include util.dimensions(50%, 100%);
                 border-top-left-radius: util.rem(40);
                 border-bottom-left-radius: util.rem(40);
                 background-color: rgb(60, 148, 189);
@@ -39,32 +38,18 @@
                 justify-content: space-between;
             }
 
-            &__back-button {
-                font-size: 0.9rem;
-                padding: 0.3rem;
-                @include util.margin-vertical(1rem);
-                text-decoration: underline;
-                text-decoration-thickness: 0.2rem;
-                text-underline-offset: 0.2rem;
-
-                @include util.breakpoint(large) {
-                    display: none;
-                }
-            }
-
             &__switch-container {
                 display: none;
 
                 @include util.breakpoint(large) {
                     @include util.flex-center;
                     justify-content: flex-end;
-                    width: 100%;
-                    height: 50px;
+                    @include util.dimensions(100%, util.rem(50));
                     text-align: center;
                     cursor: pointer;
 
                     & > *:hover {
-                        background-color: darkorange;
+                        opacity: 0.8;
                         text-decoration: underline;
                         text-decoration-thickness: 0.3rem;
                         text-underline-offset: 0.2rem;
@@ -75,8 +60,7 @@
                     background-color: orange;
 
                     @include util.breakpoint(large) {
-                        width: 70%;
-                        height: 100%;
+                        @include util.dimensions(70%, 100%);
                         @include util.flex-center-all;
                         border-top-left-radius: 2rem;
                         box-shadow: -5px 5px 5px blue;
@@ -88,8 +72,7 @@
             &__registration {
                 
                 @include util.breakpoint(large) {
-                    width: 90%;
-                    height: 90%;
+                    @include util.dimensions(90%, 90%);
                     padding: 1rem 2rem 1rem 1rem;
                     @include util.flex-center-all;
                 }
@@ -98,8 +81,7 @@
                     font-size: 1.5rem;
 
                     @include util.breakpoint(large) {
-                        width: 100%;
-                        height: 100%;
+                        @include util.dimensions(100%, 100%);
                         @include util.flex-center-all;
                         font-size: 1.5rem;
                     }
@@ -115,8 +97,7 @@
                 display: flex;
                 align-items: flex-start;
                 justify-content: flex-end;
-                width: 50%;
-                height: 100%;
+                @include util.dimensions(50%, 100%);
                 border-top-right-radius: util.rem(40);
                 border-bottom-right-radius: util.rem(40);
                 background-color: darkgrey;
@@ -133,19 +114,18 @@
                     align-items: flex-start;
                     justify-content: flex-start;
                     cursor: pointer;
-                    height: 50px;
-                    width: 100%;
+                    @include util.dimensions(100%, util.rem(50));
                 }
 
                 &--login {
                     @include util.flex-center-all;
                     background-color: grey;
-                    width: 70%;
-                    height: 100%;
+                    @include util.dimensions(70%, 100%);
                     border-top-right-radius: 2rem;
+                    color: var(--login-text-color);
 
                     &:hover {
-                        background-color: darkgrey;
+                        opacity: 0.8;
                         text-decoration: underline;
                         text-decoration-thickness: 0.3rem;
                         text-underline-offset: 0.2rem;
@@ -188,7 +168,7 @@
             color: black;
             background-color: white;
             border: 1px solid black;
-            padding: 5px 10px;
+            padding: util.rem(5) util.rem(10);
             border-radius: 0.5rem;
         }
     }
@@ -200,7 +180,7 @@
             color: black;
             background-color: white;
             border: 1px solid black;
-            padding: 5px 10px;
+            padding: util.rem(5) util.rem(10);
             border-radius: 0.5rem;
         }
     }
@@ -213,7 +193,7 @@
             color: black;
             background-color: white;
             border: 1px solid black;
-            padding: 5px 10px;
+            padding: util.rem(5) util.rem(10);
             border-radius: 0.5rem;
 
             &--icon {
@@ -222,18 +202,18 @@
             }
         }
     }
-}
 
-.form__forgot-password {
-    @include util.flex-center;
-    justify-content: flex-end;
-    font-size: 1rem;
-    padding: 0.5rem;
-    text-decoration: underline;
-    color: rgb(255, 119, 0);
-    
-    p {
-        color: rgb(255, 119, 0);
+    &__login-link {
+        font-size: 0.8rem;
+        text-decoration: underline;
+        
+        & p {
+            color: var(--login-text-color);
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
     }
 }
 
@@ -251,10 +231,10 @@
         margin: 1rem auto;
         letter-spacing: 0.1rem;
         cursor: pointer;
-        color: var(--text-color);
+        color: var(--login-text-color);
 
         &:hover {
-            background-color: darkred;
+            background-color: rgb(215, 3, 3);
         }
     }
 }

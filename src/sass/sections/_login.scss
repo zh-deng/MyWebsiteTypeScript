@@ -1,9 +1,11 @@
 @use "../util";
 
 .login {
-    height: 600px;
-    background-color: rgba(128, 128, 128, 0.167);
+    height: util.rem(600);
+    // background-color: rgba(128, 128, 128, 0.167);
+    background-color: rgb(106, 96, 96);
     @include util.flex-center-all;
+    color: var(--login-text-color);
 
     @include util.breakpoint(large) {
         height: util.rem(800);
@@ -11,15 +13,13 @@
     }
 
     &__content {
-        width: 90%;
-        height: 80%;
+        @include util.dimensions(90%, 80%);
         @include util.flex-center-all;
         padding: util.rem(10);
 
         @include util.breakpoint(large) {
             background-color: rgb(183, 183, 183);
-            height: util.rem(700);
-            width: util.rem(1000);
+            @include util.dimensions(util.rem(1000), util.rem(700));
             border-radius: util.rem(50);
             padding: util.rem(10);
             justify-content: space-between;
@@ -33,8 +33,7 @@
                 display: flex;
                 align-items: flex-start;
                 justify-content: flex-end;
-                width: 50%;
-                height: 100%;
+                @include util.dimensions(50%, 100%);
                 border-top-left-radius: util.rem(40);
                 border-bottom-left-radius: util.rem(40);
                 background-color: darkgrey;
@@ -51,19 +50,18 @@
                     align-items: flex-start;
                     justify-content: flex-end;
                     cursor: pointer;
-                    height: 50px;
-                    width: 100%;
+                    @include util.dimensions(100%, util.rem(50));
                 }
 
                 &--registration {
                     @include util.flex-center-all;
                     background-color: grey;
-                    width: 70%;
-                    height: 100%;
+                    @include util.dimensions(70%, 100%);
                     border-top-left-radius: 2rem;
+                    color: var(--login-text-color);
 
                     &:hover {
-                        background-color: darkgrey;
+                        opacity: 0.9;
                         text-decoration: underline;
                         text-decoration-thickness: 0.3rem;
                         text-underline-offset: 0.2rem;
@@ -75,8 +73,7 @@
         &__right {
 
             @include util.breakpoint(large) {
-                width: 50%;
-                height: 100%;
+                @include util.dimensions(50%, 100%);
                 border-top-right-radius: util.rem(40);
                 border-bottom-right-radius: util.rem(40);
                 background-color: rgb(60, 148, 189);
@@ -92,13 +89,12 @@
                 @include util.breakpoint(large) {
                     @include util.flex-center;
                     justify-content: flex-start;
-                    width: 100%;
-                    height: 50px;
+                    @include util.dimensions(100%, util.rem(50));
                     text-align: center;
                     cursor: pointer;
 
                     & > *:hover {
-                        background-color: darkorange;
+                        opacity: 0.8;
                         text-decoration: underline;
                         text-decoration-thickness: 0.3rem;
                         text-underline-offset: 0.2rem;
@@ -109,8 +105,7 @@
                     background-color: orange;
 
                     @include util.breakpoint(large) {
-                        width: 70%;
-                        height: 100%;
+                        @include util.dimensions(70%, 100%);
                         @include util.flex-center-all;
                         border-top-right-radius: 2rem;
                         box-shadow: 5px 5px 5px red;
@@ -122,8 +117,7 @@
             &__login {
 
                 @include util.breakpoint(large) {
-                    width: 90%;
-                    height: 90%;
+                    @include util.dimensions(90%, 90%);
                     padding: 1rem 1rem 1rem 2rem;
                     @include util.flex-center-all;
                 }
@@ -132,8 +126,7 @@
                     font-size: 1.5rem;
 
                     @include util.breakpoint(large) {
-                        width: 100%;
-                        height: 100%;
+                        @include util.dimensions(100%, 100%);
                         @include util.flex-center-all;
                         font-size: 1.5rem;
                     }
@@ -143,7 +136,7 @@
     }
 }
 
-.form__field {
+.loginForm__field {
 
     & > * {
         @include util.margin-vertical(1rem);
@@ -173,7 +166,7 @@
             color: black;
             background-color: white;
             border: 1px solid black;
-            padding: 5px 10px;
+            padding: util.rem(5) util.rem(10);
             border-radius: 0.5rem;
         }
     }
@@ -186,7 +179,7 @@
             color: black;
             background-color: white;
             border: 1px solid black;
-            padding: 5px 10px;
+            padding: util.rem(5) util.rem(10);
             border-radius: 0.5rem;
 
             &--icon {
@@ -198,24 +191,36 @@
 
     &__register-link {
         font-size: 0.8rem;
-        text-decoration: underline
+        text-decoration: underline;
+
+        & p {
+            color: var(--login-text-color);
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
     }
 }
 
-.form__forgot-password {
+.loginForm__forgot-password {
     @include util.flex-center;
     justify-content: flex-end;
     font-size: 1rem;
     padding: 0.5rem;
     text-decoration: underline;
-    color: rgb(255, 119, 0);
+    color: red;
+
+    &:hover {
+        opacity: 0.8;
+    }
     
     p {
-        color: rgb(255, 119, 0);
+        color: red;
     }
 }
 
-.form__button {
+.loginForm__button {
     border: none;
 
     input {
@@ -229,10 +234,10 @@
         margin: 1rem auto;
         letter-spacing: 0.1rem;
         cursor: pointer;
-        color: var(--text-color);
+        color: var(--login-text-color);
 
         &:hover {
-            background-color: darkred;
+            background-color: rgb(215, 3, 3);
         }
     }
 }

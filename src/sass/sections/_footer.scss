@@ -48,11 +48,11 @@
                 @include util.flex-center;
                 justify-content: space-around;
                 flex-wrap: wrap;
-                gap: 20px;
+                gap: util.rem(20);
 
                 & > * {
                     width: max(30%, util.rem(250));
-                    padding: 10px;
+                    padding: util.rem(10);
                     @include util.flex-center-all;
                     flex-direction: column;
                     gap: util.rem(10);

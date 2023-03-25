@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
     return (
@@ -15,9 +16,9 @@ const Hero = () => {
                     </p>
                 </div>
                 <div className="hero__content__button">
-                    <a href="">
+                    <Link to="/Registrierung">
                         Starten Sie durch!
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -1,8 +1,8 @@
  @use "../util";
 
 .hero {
-    width: 100%;
-    height: util.rem(700);
+    @include util.dimensions(100%, calc(100vh - 5rem));
+    @include util.dimensions(100%, calc(100svh - 5rem));
     background-image: url(../../assets//hero/hero_background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -12,7 +12,8 @@
     justify-content: flex-start;
 
     @include util.breakpoint(large) {
-        height: util.rem(800);
+        height: calc(100vh - 5rem);
+        height: calc(100svh - 5rem);
     };
 
     &__content {
@@ -50,10 +51,10 @@
             margin: 1.5rem;
             @include util.growLeft;
 
-            & a {
+            & > * {
             background-color: var(--button-color);
-            padding: 10px 15px;
-            border-radius: 10px;
+            padding: util.rem(10) util.rem(15);
+            border-radius: util.rem(10);
             
             &:hover {
                 background-color: var(--button-color-hover);

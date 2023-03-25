@@ -24,13 +24,6 @@ const Registration = () => {
                             </h1>
                         </div>
                     </div>
-                    <div className="registration__content__left__back-button">
-                        <Link to="/Login">
-                            <p>
-                                zurück zum Log-In
-                            </p>
-                        </Link>
-                    </div>
                     <div className="registration__content__left__registration">
                         <div className="registration__content__left__registration__form">
                             <form>
@@ -117,18 +110,18 @@ const Registration = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="form__forgot-password">
-                                    <a href="">
-                                        <p>
-                                            Passwort vergessen
-                                        </p>
-                                    </a>
-                                </div>
                                 <div className="form__button">
                                     <input
                                         type="submit"
-                                        value="Anmelden"
+                                        value="Konto eröffnen"
                                     />
+                                </div>
+                                <div className="form__field__login-link">
+                                    <Link to="/Login">
+                                        <p>
+                                            Du hast schon ein Konto? Log-In
+                                        </p>
+                                    </Link>
                                 </div>
                             </form>
                         </div>

@@ -1,0 +1,54 @@
+@use "../util";
+
+.career {
+    padding: 1rem;
+
+    &__content {
+        background-color: red;
+        padding: 1rem;
+
+        &__hero {
+            background-color: blue;
+            padding: 1rem;
+        }
+
+        &__jobs {
+            @include util.flex-center-all;
+            background-color: green;
+            padding: 1rem;
+
+            &__job-container {
+                @include util.flex-center-all;
+                flex-direction: column;
+                width: 80%;
+                background-color: red;
+
+                &__filter-container {
+                    @include util.flex-center;
+                    justify-content: space-around;
+                    flex-wrap: wrap;
+                    width: 100%;
+                    gap: 1rem;
+                }
+
+                &__mode {
+                    background-color: black;
+                    padding: 0.5rem;
+                    border: 1px solid;
+                    @include util.flex-center-all
+                }
+
+                &__items {
+
+                    &--regular {
+
+                    }
+
+                    &--grid {
+
+                    }
+                }
+            }
+        }
+    }
+}

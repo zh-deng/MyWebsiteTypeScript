@@ -1,5 +1,10 @@
 @use "./functions" as func;
 
+@mixin dimensions($width, $height) {
+    width: $width;
+    height: $height;
+}
+
 @mixin margin-horizontal($value){
     margin-left: $value;
     margin-right: $value;

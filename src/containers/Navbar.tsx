@@ -4,7 +4,7 @@ import companyLogo_dark from "../assets/logo/logo_transparent_dark.png"
 import germanFlag from "../assets/countryFlag/germany.png";
 import ukFlag from "../assets/countryFlag/uk.png";
 import { FiMenu } from "react-icons/fi";
-import { MdOutlineLogin } from "react-icons/md";
+import { CgProfile } from "react-icons/cg";
 import { ImCross } from "react-icons/im";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { selectLanguageswitch, switchLanguage } from "../redux/features/languageswitchSlice";
@@ -94,7 +94,7 @@ const Navbar = () => {
                                 <Darkmodeswitch />
                             </div>
                             <Link to="/Login">
-                                <MdOutlineLogin />
+                                <CgProfile />
                             </Link>
                             <div className="navbar__content__links-container__symbol-container__icons__country" onClick={handleCountryClick} data-current={defaultLanguage === true ? "DE" : "EN"}>
                                 {
