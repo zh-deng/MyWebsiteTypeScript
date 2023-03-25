@@ -7,4 +7,5 @@ export { default as LandingPage } from "./LandingPage";
 export { default as Login } from "./Login";
 export { default as Navbar } from "./Navbar";
 export { default as Products } from "./Products";
+export { default as Registration } from "./Registration"; 
 export { default as Services } from "./Services";

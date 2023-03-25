@@ -11,7 +11,6 @@
     }
 
     &__content {
-        // background-color: rgb(183, 183, 183);
         width: 90%;
         height: 80%;
         @include util.flex-center-all;
@@ -28,9 +27,12 @@
 
         &__left {
             display: none;
+            padding: 1rem 0 1rem 1rem;
 
             @include util.breakpoint(large) {
-                @include util.flex-center-all;
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-end;
                 width: 50%;
                 height: 100%;
                 border-top-left-radius: util.rem(40);
@@ -39,6 +41,34 @@
                 background-image: url(../../assets/login/login_welcomeback.jpg);
                 background-position: center;
                 background-size: cover;
+            }
+
+            &__switch-container {
+                width: 100%;
+
+                & > * {
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: flex-end;
+                    cursor: pointer;
+                    height: 50px;
+                    width: 100%;
+                }
+
+                &--registration {
+                    @include util.flex-center-all;
+                    background-color: grey;
+                    width: 70%;
+                    height: 100%;
+                    border-top-left-radius: 2rem;
+
+                    &:hover {
+                        background-color: darkgrey;
+                        text-decoration: underline;
+                        text-decoration-thickness: 0.3rem;
+                        text-underline-offset: 0.2rem;
+                    }
+                }
             }
         }
 
@@ -49,8 +79,8 @@
                 height: 100%;
                 border-top-right-radius: util.rem(40);
                 border-bottom-right-radius: util.rem(40);
-                background-color: rgb(50, 168, 50);
-                padding: util.rem(20);
+                background-color: rgb(60, 148, 189);
+                padding: 1rem 1rem 1rem 0;
                 @include util.flex-center;
                 flex-direction: column;
                 justify-content: space-between;
@@ -60,19 +90,15 @@
                 display: none;
 
                 @include util.breakpoint(large) {
-                    @include util.flex-center-all;
+                    @include util.flex-center;
+                    justify-content: flex-start;
                     width: 100%;
-                    background-color: yellow;
+                    height: 50px;
                     text-align: center;
                     cursor: pointer;
-                    border-radius: 10px;
-
-                    & > *{
-                        padding: 0.5rem;
-                    }
 
                     & > *:hover {
-                        background-color: rgba(0, 0, 0, 0.148);
+                        background-color: darkorange;
                         text-decoration: underline;
                         text-decoration-thickness: 0.3rem;
                         text-underline-offset: 0.2rem;
@@ -80,27 +106,25 @@
                 }
 
                 &--login {
+                    background-color: orange;
 
                     @include util.breakpoint(large) {
-                        width: 50%;
+                        width: 70%;
+                        height: 100%;
+                        @include util.flex-center-all;
+                        border-top-right-radius: 2rem;
+                        box-shadow: 5px 5px 5px red;
                     }
                 }
 
-                &--register {
-
-                    @include util.breakpoint(large) {
-                        width: 50%;
-                    }
-                }
             }
 
             &__login {
 
                 @include util.breakpoint(large) {
-                    background-color: red;
                     width: 90%;
                     height: 90%;
-                    padding: 1rem;
+                    padding: 1rem 1rem 1rem 2rem;
                     @include util.flex-center-all;
                 }
 
@@ -108,7 +132,6 @@
                     font-size: 1.5rem;
 
                     @include util.breakpoint(large) {
-                        background-color: yellow;
                         width: 100%;
                         height: 100%;
                         @include util.flex-center-all;
@@ -128,13 +151,14 @@
 
     h6 {
         margin: 0.5rem 0.2rem;
+        letter-spacing: 0.05rem;
     }
 
     input {
         padding: 0.3rem 0.5rem;
         border: none;
         font-size: 1rem;
-        letter-spacing: 0.05rem;
+        letter-spacing: 0.1rem;
 
         &:focus {
             outline: none;
@@ -171,6 +195,11 @@
             }
         }
     }
+
+    &__register-link {
+        font-size: 0.8rem;
+        text-decoration: underline
+    }
 }
 
 .form__forgot-password {
@@ -179,10 +208,10 @@
     font-size: 1rem;
     padding: 0.5rem;
     text-decoration: underline;
-    color: red;
+    color: rgb(255, 119, 0);
     
     p {
-        color: red;
+        color: rgb(255, 119, 0);
     }
 }
 
@@ -207,114 +236,3 @@
         }
     }
 }
-
-// .login {
-//     height: util.rem(900);
-//     @include util.flex-center-all;
-
-//     &__content {
-//         background-color: rgb(183, 183, 183);
-//         height: util.rem(800);
-//         width: 70%;
-//         border-radius: util.rem(50);
-//         padding: util.rem(10);
-//         @include util.flex-center;
-//         justify-content: space-between;
-
-//         &__left {
-//             width: 50%;
-//             height: 100%;
-//             border-top-left-radius: util.rem(40);
-//             border-bottom-left-radius: util.rem(40);
-//             background-color: darkgrey;
-//             padding: util.rem(20);
-//         }
-
-//         &__right {
-//             width: 50%;
-//             height: 100%;
-//             border-top-right-radius: util.rem(40);
-//             border-bottom-right-radius: util.rem(40);
-//             background-color: rgb(50, 168, 50);
-//             padding: util.rem(20);
-//             @include util.flex-center;
-//             flex-direction: column;
-//             justify-content: space-between;
-
-//             &__switch-container {
-//                 @include util.flex-center-all;
-//                 width: 100%;
-//                 background-color: yellow;
-//                 text-align: center;
-//                 padding: 0.5rem;
-//                 cursor: pointer;
-//                 border-radius: 10px;
-
-//                 &--login {
-//                     width: 50%;
-//                 }
-
-//                 &--register {
-//                     width: 50%;
-//                 }
-//             }
-
-//             &__login {
-//                 background-color: red;
-//                 width: 90%;
-//                 height: 90%;
-//                 padding: 1rem;
-//                 @include util.flex-center-all;
-
-//                 &__form {
-//                     background-color: yellow;
-//                     width: 60%;
-//                     height: 60%;
-//                     @include util.flex-center-all;
-//                     font-size: 1.5rem;
-//                 }
-//             }
-//         }
-
-//     }
-// }
-
-// .form__field {
-
-//     input {
-//         padding: 0.3rem 0.5rem;
-//         border-radius: 0.2rem;
-//         border: 1px solid grey;
-//         font-size: 1rem;
-//         letter-spacing: 0.05rem;
-
-//     }
-
-//     &__email {
-//         padding-bottom: 0.5rem
-        
-//     }
-// }
-
-// .form__forgot-password {
-//     @include util.flex-center;
-//     justify-content: flex-end;
-//     font-size: 1.3rem;
-//     padding: 0.5rem;
-// }
-
-// .form__button {
-
-//     input {
-//         width: 100%;
-//         font-size: 1.1rem;
-//         padding: 0.2rem;
-//         background-color: red;
-//         border: 1px solid black;
-//         border-radius: 0.3rem;
-
-//         &:hover {
-//             background-color: darkred;
-//         }
-//     }
-// }

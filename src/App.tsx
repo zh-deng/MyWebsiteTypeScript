@@ -1,5 +1,5 @@
 import React from "react";
-import { About, Career, Footer, Hero, Impressum, LandingPage, Login, Navbar, Products, Services} from "./containers"; 
+import { About, Career, Footer, Hero, Impressum, LandingPage, Login, Navbar, Products, Registration, Services} from "./containers"; 
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -14,7 +14,8 @@ function App() {
 				<Route path="/Karriere" element={<Career />} />
 				<Route path="/Impressum" element={<Impressum />} />
 				<Route path="/Login" element={<Login />} />
-			</Routes>
+				<Route path="/Registrierung" element={<Registration />} />
+			</Routes> 
 			<Footer />
 		</div>
 	);

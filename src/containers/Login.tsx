@@ -3,7 +3,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { AiOutlineLock, AiOutlineUnlock } from "react-icons/ai";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { selectUi, togglePasswordVisibility } from "../redux/features/uiSlice";
-import loginWelcomeBack from "../assets/login/login_welcomeback.jpg";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     const { passwordHidden } = useAppSelector(selectUi);
@@ -17,17 +17,21 @@ const Login = () => {
         <div className="login">
             <div className="login__content">
                 <div className="login__content__left">
+                    <div className="login__content__left__switch-container">
+                        <Link to="/Registrierung">
+                            <div className="login__content__left__switch-container--registration">
+                                <h1>
+                                    Registrieren
+                                </h1>
+                            </div>
+                        </Link>
+                    </div>
                 </div>
                 <div className="login__content__right">
                     <div className="login__content__right__switch-container">
                         <div className="login__content__right__switch-container--login">
                             <h1>
                                 Log-In
-                            </h1>
-                        </div>
-                        <div className="login__content__right__switch-container--register">
-                            <h1>
-                                Registrieren
                             </h1>
                         </div>
                     </div>
@@ -82,6 +86,13 @@ const Login = () => {
                                         type="submit"
                                         value="Anmelden"
                                     />
+                                </div>
+                                <div className="form__field__register-link">
+                                    <Link to="/Registrierung">
+                                        <p>
+                                            Noch kein Konto? Registriere dich jetzt!
+                                        </p>
+                                    </Link>
                                 </div>
                             </form>
                         </div>
