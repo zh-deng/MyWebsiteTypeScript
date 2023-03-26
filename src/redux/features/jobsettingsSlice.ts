@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Action } from "@remix-run/router";
 import { RootState } from "../store";
 
 const tilemode: boolean = false;
@@ -14,10 +15,11 @@ const industrySelected: string[] = [];
 const typeSelected: string[] = [];
 
 const filterOpened: string = "";
-const locationsActivated: boolean = false;
-const levelActivated: boolean = false;
-const industryActivated: boolean = false;
-const typeActivated: boolean = false;
+
+export interface ActionSelect {
+    category: string,
+    argument: string
+}
 
 export const jobsettingsSlice = createSlice({
     name: "jobsettings",
@@ -32,10 +34,6 @@ export const jobsettingsSlice = createSlice({
         levelSelected,
         industrySelected,
         typeSelected,
-        locationsActivated,
-        levelActivated,
-        industryActivated,
-        typeActivated,
         filterOpened
     },
     reducers: {
@@ -43,19 +41,9 @@ export const jobsettingsSlice = createSlice({
             state.tilemode = state.tilemode === false ? true : false;
         },
         setFilterOpened: (state, action: PayloadAction<string>) => {
-            state.filterOpened = action.payload;
-        },
-        toggleLocations: (state) => {
-            state.locationsActivated = state.locationsActivated === false ? true : false;
-        },
-        toggleLevel: (state) => {
-            state.levelActivated = state.levelActivated === false ? true : false;
-        },
-        toggleIndustry: (state) => {
-            state.industryActivated = state.industryActivated === false ? true : false;
-        },
-        toggleType: (state) => {
-            state.typeActivated = state.typeActivated === false ? true : false;
+            state.filterOpened !== action.payload ? 
+            state.filterOpened = action.payload :
+            state.filterOpened = "";
         },
         enableFilter: (state) => {
             state.filter = true;
@@ -63,43 +51,50 @@ export const jobsettingsSlice = createSlice({
         disableFilter: (state) => {
             state.filter = false;
         },
-        addLocation: (state, action: PayloadAction<string>) => {
-            state.locationsSelected = [...state.locationsSelected, action.payload];
+        addSelected: (state, action: PayloadAction<ActionSelect>) => {
+            switch(action.payload.category) {
+                case "Standort":
+                    state.locationsSelected = [...state.locationsSelected, action.payload.argument];
+                    break;
+                case "Branche":
+                    state.industrySelected = [...state.industrySelected, action.payload.argument];
+                    break;
+                case "Berufserfahrung":
+                    state.levelSelected = [...state.levelSelected, action.payload.argument];
+                    break;
+                case "Anstellungsart":
+                    state.typeSelected = [...state.typeSelected, action.payload.argument];
+            };
         },
-        addLevel: (state, action: PayloadAction<string>) => {
-            state.levelSelected = [...state.levelSelected, action.payload];
-        },
-        addIndustry: (state, action: PayloadAction<string>) => {
-            state.industrySelected = [...state.industrySelected, action.payload];
-        },
-        addType: (state, action: PayloadAction<string>) => {
-            state.typeSelected = [...state.typeSelected, action.payload];
-        },
-        removeLocation: (state, action: PayloadAction<string>) => {
-            let newList = [...state.locationsSelected];
-            newList.splice(newList.indexOf(action.payload), 1);
-            state.locationsSelected = [...newList];
-        },
-        removeLevel: (state, action: PayloadAction<string>) => {
-            let newList = [...state.levelSelected];
-            newList.splice(newList.indexOf(action.payload), 1);
-            state.levelSelected = [...newList];
-        },
-        removeIndustry: (state, action: PayloadAction<string>) => {
-            let newList = [...state.industrySelected];
-            newList.splice(newList.indexOf(action.payload), 1);
-            state.industrySelected = [...newList];
-        },
-        removeType: (state, action: PayloadAction<string>) => {
-            let newList = [...state.typeSelected];
-            newList.splice(newList.indexOf(action.payload), 1);
-            state.typeSelected = [...newList];
+        removeSelected: (state, action: PayloadAction<ActionSelect>) => {
+            let newList = []
+            switch(action.payload.category) {
+                case "Standort":
+                    newList = [...state.locationsSelected];
+                    newList.splice(newList.indexOf(action.payload.argument), 1);
+                    state.locationsSelected = [...newList];
+                    break;
+                case "Branche":
+                    newList = [...state.industrySelected];
+                    newList.splice(newList.indexOf(action.payload.argument), 1);
+                    state.industrySelected = [...newList];
+                    break;
+                case "Berufserfahrung":
+                    newList = [...state.levelSelected];
+                    newList.splice(newList.indexOf(action.payload.argument), 1);
+                    state.levelSelected = [...newList];
+                    break;
+                case "Anstellungsart":
+                    newList = [...state.typeSelected];
+                    newList.splice(newList.indexOf(action.payload.argument), 1);
+                    state.typeSelected = [...newList];
+            };
         }
     }
 });
 
 export const selectJobsettings = (state: RootState) => state.jobsettings;
 
-export const { toggleTilemode, toggleLocations, toggleLevel, toggleIndustry, toggleType, enableFilter, disableFilter, addLocation, addLevel, addIndustry, addType, removeLocation, removeLevel, removeIndustry, removeType, setFilterOpened } = jobsettingsSlice.actions;
+export const { toggleTilemode, enableFilter, disableFilter, addSelected, removeSelected, setFilterOpened } = jobsettingsSlice.actions;
 
 export default jobsettingsSlice.reducer;

@@ -43,6 +43,7 @@
                 & li {
                     padding: 0.5rem;
                     width: 100%;
+                    cursor: pointer;
                     &:hover {
                         background-color: grey;
                     }
@@ -50,4 +51,8 @@
             }
         }
     }
+}
+
+.highlight {
+    background-color: grey;
 }
