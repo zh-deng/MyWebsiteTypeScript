@@ -9,10 +9,17 @@ const level: string[] = ["Student/Praktikant", "Berufseinsteiger", "Mit Berufser
 const industry: string[] = ["IT und Softwareentwicklung", "Vertrieb und Handel"];
 const type: string[] = ["Teilzeit", "Vollzeit"];
 
+const fetchedJobs: {title: string, description: string, location: string, level: string, industry: string, type: string}[] = [
+    {title: "Junior-Frontend-Entwickler", description: "", location: "München", level: "Berufseinsteiger", industry: "IT und Softwareentwicklung", type: "Vollzeit"},
+]; 
+const filteredJobs: {title: string, description: string, location: string, level: string, industry: string, type: string}[] = [];
+
 const locationsSelected: string[] = [];
 const levelSelected: string[] = [];
 const industrySelected: string[] = [];
 const typeSelected: string[] = [];
+
+const previousSelected: string = "";
 
 const filterOpened: string = "";
 
@@ -34,16 +41,16 @@ export const jobsettingsSlice = createSlice({
         levelSelected,
         industrySelected,
         typeSelected,
-        filterOpened
+        filterOpened,
+        previousSelected
     },
     reducers: {
         toggleTilemode: (state) => {
             state.tilemode = state.tilemode === false ? true : false;
         },
         setFilterOpened: (state, action: PayloadAction<string>) => {
-            state.filterOpened !== action.payload ? 
-            state.filterOpened = action.payload :
-            state.filterOpened = "";
+            state.previousSelected !== action.payload && (state.filterOpened = action.payload);
+            action.payload !== "" && (state.previousSelected === action.payload ? (state.previousSelected = "") : (state.previousSelected = action.payload));
         },
         enableFilter: (state) => {
             state.filter = true;

@@ -1,27 +1,65 @@
 @use "../util";
 
 .career {
-    padding: 1rem;
 
     &__content {
         background-color: red;
-        padding: 1rem;
+        @include util.flex-center-all;
+        flex-direction: column;
 
         &__hero {
-            background-color: blue;
             padding: 1rem;
+            height: 50vh;
+            width: 100%;
+            background-image: url(../../assets/career/job_banner.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            @include util.flex-center;
+
+            @include util.breakpoint(medium) {
+                width: min(80%, 1500px);
+            }
+
+            @include util.breakpoint(large) {
+                height: 85vh;
+            }
+
+            & h3 {
+                background-color: blue;
+                width: fit-content;
+                padding: 0.5rem;
+                margin-left: 5%;
+
+                @include util.breakpoint(medium) {
+                    font-size: 1.5rem;
+                    margin-left: 10%
+                }
+
+                @include util.breakpoint(large) {
+                    font-size: 2.5rem;
+                    margin-left: 5%;
+                }
+
+                @media (min-width: 1400px) {
+                    font-size: 3.3rem;
+                    padding: 1rem;
+                }
+            }
         }
 
         &__jobs {
             @include util.flex-center-all;
             background-color: green;
             padding: 1rem;
+            width: 80%;
 
             &__job-container {
                 @include util.flex-center-all;
                 flex-direction: column;
-                width: 80%;
+                width: 100%;
                 background-color: red;
+                padding: 2rem;
 
                 &__filter-container {
                     @include util.flex-center;
@@ -51,6 +89,16 @@
                 }
 
                 &__items {
+                    padding: 2rem;
+                    background-color: grey;
+                    width: 100%;
+                    @include util.flex-center-all;
+
+                    & > * {
+                        background-color: blue;
+                        width: 100%;
+                        @include util.flex-center-all;
+                    }
 
                     &--regular {
 

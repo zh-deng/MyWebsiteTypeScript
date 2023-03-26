@@ -31,6 +31,7 @@
             width: 270px;
             top: 4rem;
             padding: 0.5rem;
+            z-index: 99;
             @include util.flex-center-all;
             
             & ul {

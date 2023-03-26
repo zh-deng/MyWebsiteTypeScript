@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { ActionSelect } from "../redux/features/jobsettingsSlice";
 
 interface DropdownProps {
@@ -10,10 +10,11 @@ interface DropdownProps {
         toggleFunction: (arg: string) => void,
         selectFunction: (payload: ActionSelect) => void,
         unselectFunction: (payload: ActionSelect) => void
-    }
+    };
+    dropdownRef: React.RefObject<HTMLDivElement>
 };
 
-const DropdownMenu = ({category, menuList, selectedArray, dropdownTools}: DropdownProps) => {
+const DropdownMenu = ({category, menuList, selectedArray, dropdownTools, dropdownRef}: DropdownProps) => {
     const menu = menuList;
 
     const handleSelectClick = (item: string) => {
@@ -31,7 +32,7 @@ const DropdownMenu = ({category, menuList, selectedArray, dropdownTools}: Dropdo
                     }
                     <span className="caret"></span>
                 </div>
-                <div className={dropdownTools.activated === category ? "dropdownmenu__content__options" : "invisible"}>
+                <div className={dropdownTools.activated === category ? "dropdownmenu__content__options" : "invisible"} ref={dropdownRef} >
                     <ul>
                         {
                             menuList.map((item, index) => (
