@@ -13,6 +13,12 @@ const levelSelected: string[] = [];
 const industrySelected: string[] = [];
 const typeSelected: string[] = [];
 
+const filterOpened: string = "";
+const locationsActivated: boolean = false;
+const levelActivated: boolean = false;
+const industryActivated: boolean = false;
+const typeActivated: boolean = false;
+
 export const jobsettingsSlice = createSlice({
     name: "jobsettings",
     initialState: {
@@ -25,11 +31,31 @@ export const jobsettingsSlice = createSlice({
         locationsSelected,
         levelSelected,
         industrySelected,
-        typeSelected
+        typeSelected,
+        locationsActivated,
+        levelActivated,
+        industryActivated,
+        typeActivated,
+        filterOpened
     },
     reducers: {
         toggleTilemode: (state) => {
             state.tilemode = state.tilemode === false ? true : false;
+        },
+        setFilterOpened: (state, action: PayloadAction<string>) => {
+            state.filterOpened = action.payload;
+        },
+        toggleLocations: (state) => {
+            state.locationsActivated = state.locationsActivated === false ? true : false;
+        },
+        toggleLevel: (state) => {
+            state.levelActivated = state.levelActivated === false ? true : false;
+        },
+        toggleIndustry: (state) => {
+            state.industryActivated = state.industryActivated === false ? true : false;
+        },
+        toggleType: (state) => {
+            state.typeActivated = state.typeActivated === false ? true : false;
         },
         enableFilter: (state) => {
             state.filter = true;
@@ -74,6 +100,6 @@ export const jobsettingsSlice = createSlice({
 
 export const selectJobsettings = (state: RootState) => state.jobsettings;
 
-export const { toggleTilemode } = jobsettingsSlice.actions;
+export const { toggleTilemode, toggleLocations, toggleLevel, toggleIndustry, toggleType, enableFilter, disableFilter, addLocation, addLevel, addIndustry, addType, removeLocation, removeLevel, removeIndustry, removeType, setFilterOpened } = jobsettingsSlice.actions;
 
 export default jobsettingsSlice.reducer;

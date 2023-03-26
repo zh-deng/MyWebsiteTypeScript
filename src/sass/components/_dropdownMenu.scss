@@ -4,14 +4,21 @@
 
 
     &__content {
+        width: 300px;
+        @include util.flex-center-all;
+        position: relative;
 
         &__category {
+            display: flex;
+            justify-content: center;
             background-color: grey;
             padding: 0.4rem 1.5rem;
             border-radius: 0.5rem;
             margin: 0.5rem;
             border: 1px solid black;
             cursor: pointer;
+            width: 100%;
+            
 
             &:hover {
                 background-color: darkgrey;
@@ -19,10 +26,27 @@
         }
 
         &__options {
-            display: none;
+            position: absolute;
+            background-color: black;
+            width: 270px;
+            top: 4rem;
+            padding: 0.5rem;
+            @include util.flex-center-all;
             
             & ul {
                 list-style-type: none;
+                @include util.flex-center-all;
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+
+                & li {
+                    padding: 0.5rem;
+                    width: 100%;
+                    &:hover {
+                        background-color: grey;
+                    }
+                }
             }
         }
     }

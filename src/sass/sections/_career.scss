@@ -29,13 +29,24 @@
                     flex-wrap: wrap;
                     width: 100%;
                     gap: 1rem;
-                }
 
-                &__mode {
-                    background-color: black;
-                    padding: 0.5rem;
-                    border: 1px solid;
-                    @include util.flex-center-all
+                    &--mode {
+                        // width: 200px;
+                        @include util.flex-center-all;
+
+                        & span {
+                            width: fit-content;
+                            background-color: black;
+                            padding: 0.5rem;
+                            border: 1px solid;
+                            @include util.flex-center-all;
+                            cursor: pointer;
+
+                            &:hover {
+                                background-color: rgb(60, 60, 60);
+                            }
+                        }
+                    }
                 }
 
                 &__items {
