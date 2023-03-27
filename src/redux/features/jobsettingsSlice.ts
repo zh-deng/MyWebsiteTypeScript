@@ -5,7 +5,7 @@ import { RootState } from "../store";
 export interface ActionSelect {
     category: string;
     argument: string;
-};
+}
 
 export interface JobProps {
     id: number;
@@ -42,51 +42,51 @@ const fetchedJobs: JobProps[] = [
         level: "Berufseinsteiger",
         industry: "IT und Softwareentwicklung",
         type: "Vollzeit",
-        teaserClicked: false
+        teaserClicked: false,
     },
     {
         id: 2,
         title: "Junior-Frontend-Entwickler2",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dolore itaque earum sequi, provident eum nesciunt assumenda vitae optio tenetur repellendus maiores esse in non. Obcaecati perferendis, optio vitae officiis accusamus ea temporibus, eaque, in illum aliquam autem deserunt exercitationem.",
-        location: "München",
+        location: "Berlin",
         level: "Berufseinsteiger",
         industry: "IT und Softwareentwicklung",
-        type: "Vollzeit",
-        teaserClicked: false
+        type: "Teilzeit",
+        teaserClicked: false,
     },
     {
         id: 3,
         title: "Junior-Frontend-Entwickler3",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dolore itaque earum sequi, provident eum nesciunt assumenda vitae optio tenetur repellendus maiores esse in non. Obcaecati perferendis, optio vitae officiis accusamus ea temporibus, eaque, in illum aliquam autem deserunt exercitationem.",
-        location: "München",
+        location: "Berlin",
         level: "Berufseinsteiger",
         industry: "IT und Softwareentwicklung",
         type: "Vollzeit",
-        teaserClicked: false
+        teaserClicked: false,
     },
     {
         id: 4,
         title: "Junior-Frontend-Entwickler4",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dolore itaque earum sequi, provident eum nesciunt assumenda vitae optio tenetur repellendus maiores esse in non. Obcaecati perferendis, optio vitae officiis accusamus ea temporibus, eaque, in illum aliquam autem deserunt exercitationem.",
-        location: "München",
+        location: "Köln",
         level: "Berufseinsteiger",
         industry: "IT und Softwareentwicklung",
-        type: "Vollzeit",
-        teaserClicked: false
+        type: "Teilzeit",
+        teaserClicked: false,
     },
     {
         id: 5,
         title: "Junior-Frontend-Entwickler5",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dolore itaque earum sequi, provident eum nesciunt assumenda vitae optio tenetur repellendus maiores esse in non. Obcaecati perferendis, optio vitae officiis accusamus ea temporibus, eaque, in illum aliquam autem deserunt exercitationem.",
-        location: "München",
+        location: "Nürnberg",
         level: "Berufseinsteiger",
         industry: "IT und Softwareentwicklung",
         type: "Vollzeit",
-        teaserClicked: false
+        teaserClicked: false,
     },
     {
         id: 6,
@@ -96,8 +96,8 @@ const fetchedJobs: JobProps[] = [
         location: "München",
         level: "Berufseinsteiger",
         industry: "IT und Softwareentwicklung",
-        type: "Vollzeit",
-        teaserClicked: false
+        type: "Teilzeit",
+        teaserClicked: false,
     },
 ];
 const filteredJobs: JobProps[] = [];
@@ -127,19 +127,16 @@ export const jobsettingsSlice = createSlice({
         filterOpened,
         previousSelected,
         fetchedJobs,
-        filteredJobs
+        filteredJobs,
     },
     reducers: {
         toggleTilemode: (state) => {
             state.tilemode = state.tilemode === false ? true : false;
         },
         setFilterOpened: (state, action: PayloadAction<string>) => {
-            state.previousSelected !== action.payload &&
-                (state.filterOpened = action.payload);
-            action.payload !== "" &&
-                (state.previousSelected === action.payload
-                    ? (state.previousSelected = "")
-                    : (state.previousSelected = action.payload));
+            state.filterOpened === action.payload
+                ? (state.filterOpened = "")
+                : (state.filterOpened = action.payload);
         },
         enableFilter: (state) => {
             state.filter = true;
@@ -199,15 +196,18 @@ export const jobsettingsSlice = createSlice({
             }
         },
         toggleJobExpansion: (state, action: PayloadAction<number>) => {
-            let newList = [...state.fetchedJobs];
+            let newList = [...state.filteredJobs];
             newList.map((item) => {
-                item.id === action.payload && (item.teaserClicked = item.teaserClicked === false ? true : false);
+                item.id === action.payload &&
+                    (item.teaserClicked =
+                        item.teaserClicked === false ? true : false);
             });
-            state.fetchedJobs = [...newList];
+            state.filteredJobs = [...newList];
+            state.filterOpened = "";
         },
         setFilteredJobs: (state, action: PayloadAction<JobProps[]>) => {
             state.filteredJobs = [...action.payload];
-        }
+        },
     },
 });
 
@@ -221,7 +221,7 @@ export const {
     removeSelected,
     setFilterOpened,
     toggleJobExpansion,
-    setFilteredJobs
+    setFilteredJobs,
 } = jobsettingsSlice.actions;
 
 export default jobsettingsSlice.reducer;

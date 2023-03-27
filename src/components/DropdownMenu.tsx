@@ -11,10 +11,11 @@ interface DropdownProps {
         selectFunction: (payload: ActionSelect) => void,
         unselectFunction: (payload: ActionSelect) => void
     };
-    dropdownRef: React.RefObject<HTMLDivElement>
+    dropdownRef: React.RefObject<HTMLDivElement>;
+    buttonRef: React.RefObject<HTMLDivElement>;
 };
 
-const DropdownMenu = ({category, menuList, selectedArray, dropdownTools, dropdownRef}: DropdownProps) => {
+const DropdownMenu = ({category, menuList, selectedArray, dropdownTools, dropdownRef, buttonRef}: DropdownProps) => {
     const menu = menuList;
 
     const handleSelectClick = (item: string) => {
@@ -26,7 +27,7 @@ const DropdownMenu = ({category, menuList, selectedArray, dropdownTools, dropdow
     return (
         <div className="dropdownmenu">
             <div className="dropdownmenu__content">
-                <div className="dropdownmenu__content__category" onClick={() => dropdownTools.toggleFunction(category)}>
+                <div className="dropdownmenu__content__category" onClick={() => dropdownTools.toggleFunction(category)} ref={buttonRef} >
                     {
                         category
                     }
