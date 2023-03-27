@@ -91,5 +91,5 @@
             transform: translateX(0);
         }
     };
-    @include animate(growLeft, 2s, linear, 1)
+    @include animate(growLeft, 2s, linear, 1);
 };

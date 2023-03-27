@@ -61,32 +61,38 @@
                 background-color: red;
                 padding: 2rem;
 
-                &__filter-container {
-                    @include util.flex-center;
-                    justify-content: space-around;
-                    flex-wrap: wrap;
-                    width: 100%;
-                    gap: 1rem;
+                &__filter {
+                    @include util.flex-center-all;
+                    gap: 2rem;
                     border-bottom: 1px solid;
+                    @include util.padding-horizontal(1rem);
 
-                    &--mode {
-                        display: none;
-
-                        @include util.breakpoint(large) {
-                            @include util.flex-center-all;
-
-                            & span {
-                                width: fit-content;
-                                background-color: black;
-                                padding: 0.5rem;
-                                border: 1px solid;
+                    &__container {
+                        @include util.flex-center;
+                        justify-content: space-around;
+                        flex-wrap: wrap;
+                        width: 100%;
+                        gap: 1rem;
+    
+                        &--mode {
+                            display: none;
+    
+                            @include util.breakpoint(large) {
                                 @include util.flex-center-all;
-                                cursor: pointer;
-
-                                &:hover {
-                                    background-color: rgb(60, 60, 60);
+    
+                                & span {
+                                    width: fit-content;
+                                    background-color: black;
+                                    padding: 0.5rem;
+                                    border: 1px solid;
+                                    @include util.flex-center-all;
+                                    cursor: pointer;
+    
+                                    &:hover {
+                                        background-color: rgb(60, 60, 60);
+                                    }
                                 }
-                        }
+                            }
                         }
                     }
                 }
@@ -98,7 +104,8 @@
                     @include util.flex-center-all;
                     flex-direction: column;
 
-                    & > * {
+                    &--bar,
+                    &--grid {
                         background-color: blue;
                         width: 100%;
                         @include util.flex-center-all;
@@ -126,6 +133,9 @@
                         border: 1px solid;
                         text-align: center;
                         letter-spacing: 0.05em;
+                        background-color: blue;
+                        width: 100%;
+                        @include util.flex-center-all;
                     }
                 }
             }

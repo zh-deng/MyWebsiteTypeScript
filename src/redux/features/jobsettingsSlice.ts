@@ -35,7 +35,7 @@ const type: string[] = ["Teilzeit", "Vollzeit"];
 const fetchedJobs: JobProps[] = [
     {
         id: 1,
-        title: "Junior-Frontend-Entwickler",
+        title: "Junior-Frontend-Entwickler1",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dolore itaque earum sequi, provident eum nesciunt assumenda vitae optio tenetur repellendus maiores esse in non. Obcaecati perferendis, optio vitae officiis accusamus ea temporibus, eaque, in illum aliquam autem deserunt exercitationem.",
         location: "München",
@@ -46,7 +46,7 @@ const fetchedJobs: JobProps[] = [
     },
     {
         id: 2,
-        title: "Junior-Frontend-Entwickler",
+        title: "Junior-Frontend-Entwickler2",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dolore itaque earum sequi, provident eum nesciunt assumenda vitae optio tenetur repellendus maiores esse in non. Obcaecati perferendis, optio vitae officiis accusamus ea temporibus, eaque, in illum aliquam autem deserunt exercitationem.",
         location: "München",
@@ -57,7 +57,7 @@ const fetchedJobs: JobProps[] = [
     },
     {
         id: 3,
-        title: "Junior-Frontend-Entwickler",
+        title: "Junior-Frontend-Entwickler3",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dolore itaque earum sequi, provident eum nesciunt assumenda vitae optio tenetur repellendus maiores esse in non. Obcaecati perferendis, optio vitae officiis accusamus ea temporibus, eaque, in illum aliquam autem deserunt exercitationem.",
         location: "München",
@@ -68,7 +68,7 @@ const fetchedJobs: JobProps[] = [
     },
     {
         id: 4,
-        title: "Junior-Frontend-Entwickler",
+        title: "Junior-Frontend-Entwickler4",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dolore itaque earum sequi, provident eum nesciunt assumenda vitae optio tenetur repellendus maiores esse in non. Obcaecati perferendis, optio vitae officiis accusamus ea temporibus, eaque, in illum aliquam autem deserunt exercitationem.",
         location: "München",
@@ -79,7 +79,7 @@ const fetchedJobs: JobProps[] = [
     },
     {
         id: 5,
-        title: "Junior-Frontend-Entwickler",
+        title: "Junior-Frontend-Entwickler5",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dolore itaque earum sequi, provident eum nesciunt assumenda vitae optio tenetur repellendus maiores esse in non. Obcaecati perferendis, optio vitae officiis accusamus ea temporibus, eaque, in illum aliquam autem deserunt exercitationem.",
         location: "München",
@@ -90,7 +90,7 @@ const fetchedJobs: JobProps[] = [
     },
     {
         id: 6,
-        title: "Junior-Frontend-Entwickler",
+        title: "Junior-Frontend-Entwickler6",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dolore itaque earum sequi, provident eum nesciunt assumenda vitae optio tenetur repellendus maiores esse in non. Obcaecati perferendis, optio vitae officiis accusamus ea temporibus, eaque, in illum aliquam autem deserunt exercitationem.",
         location: "München",
@@ -204,6 +204,9 @@ export const jobsettingsSlice = createSlice({
                 item.id === action.payload && (item.teaserClicked = item.teaserClicked === false ? true : false);
             });
             state.fetchedJobs = [...newList];
+        },
+        setFilteredJobs: (state, action: PayloadAction<JobProps[]>) => {
+            state.filteredJobs = [...action.payload];
         }
     },
 });
@@ -217,7 +220,8 @@ export const {
     addSelected,
     removeSelected,
     setFilterOpened,
-    toggleJobExpansion
+    toggleJobExpansion,
+    setFilteredJobs
 } = jobsettingsSlice.actions;
 
 export default jobsettingsSlice.reducer;

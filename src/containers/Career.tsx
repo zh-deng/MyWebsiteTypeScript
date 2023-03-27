@@ -8,6 +8,7 @@ import {
     addSelected,
     removeSelected,
     selectJobsettings,
+    setFilteredJobs,
     setFilterOpened,
     toggleTilemode,
 } from "../redux/features/jobsettingsSlice";
@@ -30,6 +31,11 @@ const Career = () => {
     } = useAppSelector(selectJobsettings);
     const dispatch = useAppDispatch();
 
+    const industryRef = useRef<HTMLDivElement>(null);
+    const locationsRef = useRef<HTMLDivElement>(null);
+    const levelRef = useRef<HTMLDivElement>(null);
+    const typeRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
         const handleOutsideClick = (event: MouseEvent) => {
             if (
@@ -48,10 +54,21 @@ const Career = () => {
         };
     }, [filterOpened]);
 
-    const industryRef = useRef<HTMLDivElement>(null);
-    const locationsRef = useRef<HTMLDivElement>(null);
-    const levelRef = useRef<HTMLDivElement>(null);
-    const typeRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        dispatch(setFilteredJobs(fetchedJobs));
+    }, []);
+
+    useEffect(() => {
+        filterFetchedJobs();
+    }, [locationsSelected, levelSelected, industrySelected, typeSelected]);
+
+    const filterFetchedJobs = () => {
+        let currentList = [...fetchedJobs];
+        let filteredList = [];
+        currentList.map((job) => {
+            locationsSelected.length > 0 && locationsSelected.includes(job.location)
+        });
+    };
 
     const handleModeClick = () => {
         dispatch(toggleTilemode());
@@ -76,45 +93,47 @@ const Career = () => {
                 </div>
                 <div className="career__content__jobs">
                     <div className="career__content__jobs__job-container">
-                        <div className="career__content__jobs__job-container__filter-container">
-                            <div className="career__content__jobs__job-container__filter-container--industry">
-                                <DropdownMenu
-                                    category="Branche"
-                                    menuList={industry}
-                                    selectedArray={industrySelected}
-                                    dropdownTools={dropdownTools}
-                                    dropdownRef={industryRef}
-                                />
-                            </div>
-                            <div className="career__content__jobs__job-container__filter-container--locations">
-                                <DropdownMenu
-                                    category="Standort"
-                                    menuList={locations}
-                                    selectedArray={locationsSelected}
-                                    dropdownTools={dropdownTools}
-                                    dropdownRef={locationsRef}
-                                />
-                            </div>
-                            <div className="career__content__jobs__job-container__filter-container--level">
-                                <DropdownMenu
-                                    category="Berufserfahrung"
-                                    menuList={level}
-                                    selectedArray={levelSelected}
-                                    dropdownTools={dropdownTools}
-                                    dropdownRef={levelRef}
-                                />
-                            </div>
-                            <div className="career__content__jobs__job-container__filter-container--type">
-                                <DropdownMenu
-                                    category="Anstellungsart"
-                                    menuList={type}
-                                    selectedArray={typeSelected}
-                                    dropdownTools={dropdownTools}
-                                    dropdownRef={typeRef}
-                                />
+                        <div className="career__content__jobs__job-container__filter">
+                            <div className="career__content__jobs__job-container__filter__container">
+                                <div className="career__content__jobs__job-container__filter__container--industry">
+                                    <DropdownMenu
+                                        category="Branche"
+                                        menuList={industry}
+                                        selectedArray={industrySelected}
+                                        dropdownTools={dropdownTools}
+                                        dropdownRef={industryRef}
+                                    />
+                                </div>
+                                <div className="career__content__jobs__job-container__filter__container--locations">
+                                    <DropdownMenu
+                                        category="Standort"
+                                        menuList={locations}
+                                        selectedArray={locationsSelected}
+                                        dropdownTools={dropdownTools}
+                                        dropdownRef={locationsRef}
+                                    />
+                                </div>
+                                <div className="career__content__jobs__job-container__filter__container--level">
+                                    <DropdownMenu
+                                        category="Berufserfahrung"
+                                        menuList={level}
+                                        selectedArray={levelSelected}
+                                        dropdownTools={dropdownTools}
+                                        dropdownRef={levelRef}
+                                    />
+                                </div>
+                                <div className="career__content__jobs__job-container__filter__container--type">
+                                    <DropdownMenu
+                                        category="Anstellungsart"
+                                        menuList={type}
+                                        selectedArray={typeSelected}
+                                        dropdownTools={dropdownTools}
+                                        dropdownRef={typeRef}
+                                    />
+                                </div>
                             </div>
                             <div
-                                className="career__content__jobs__job-container__filter-container--mode"
+                                className="career__content__jobs__job-container__filter__container--mode"
                                 onClick={handleModeClick}
                             >
                                 <span>
@@ -135,7 +154,7 @@ const Career = () => {
                                 }
                             >
                                 {
-                                    fetchedJobs.map((item) => {
+                                    filteredJobs.map((item) => {
                                         return (
                                             <div
                                                 key={"jobID " + item.id}
@@ -148,7 +167,7 @@ const Career = () => {
                             </div>
                             <div className={filteredJobs.length === 0 ? "career__content__jobs__job-container__items--empty" : "invisible"}>
                                 <h2>
-                                    Keine Jobs mit dieser Anforderung gefunden.
+                                    Derzeit gibt es keine Jobs mit dieser Anforderung.
                                 </h2>
                             </div>
                         </div>

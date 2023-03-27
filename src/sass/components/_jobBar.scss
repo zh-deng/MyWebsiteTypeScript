@@ -3,6 +3,8 @@
 .jobBar {
     background-color: green;
     @include util.margin-vertical(0.5rem);
+    height: auto;
+    overflow: hidden;
 
     &__teaser {
         @include util.flex-center;
