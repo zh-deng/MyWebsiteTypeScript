@@ -1,7 +1,8 @@
 @use "../util";
 
 .about {
-    @include util.dimensions(util.rem(1000), util.rem(50));
+    // @include util.dimensions(util.rem(1000), util.rem(50));
+    @include util.dimensions(100%, util.rem(50));
     @include util.flex-center-all;
 
     &__content {

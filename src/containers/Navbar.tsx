@@ -10,13 +10,13 @@ import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { selectLanguageswitch, switchLanguage } from "../redux/features/languageswitchSlice";
 import { selectDarkmode } from "../redux/features/darkmodeSlice";
 import Darkmodeswitch from "../components/Darkmodeswitch";
-import { selectMobileswitch, toggleMobile } from "../redux/features/mobileswitchSlice";
+import { selectMobileswitch, toggleMobile, toggleProduct, toggleService } from "../redux/features/mobileswitchSlice";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const { defaultLanguage } = useAppSelector(selectLanguageswitch);
     const { darkmode } = useAppSelector(selectDarkmode);
-    const { mobile } = useAppSelector(selectMobileswitch);
+    const { mobile, productMobile, serviceMobile } = useAppSelector(selectMobileswitch);
     const dispatch = useAppDispatch();
 
     const handleCountryClick = () => {
@@ -25,6 +25,14 @@ const Navbar = () => {
 
     const handleMobileClick = () => {
         dispatch(toggleMobile());
+    }
+
+    const handleMobileProductClick = () => {
+        dispatch(toggleProduct());
+    }
+
+    const handleMobileServiceClick = () => {
+        dispatch(toggleService());
     }
 
     return (
@@ -82,11 +90,33 @@ const Navbar = () => {
                                 <ImCross />
                             </span>
                         </div>
-                        <Link to="/Produkte"><p>Produkte<span className="caret" /></p></Link>
-                        <Link to="/Services"><p>Services<span className="caret" /></p></Link>
-                        <Link to="/Unternehmen"><p>Unternehmen</p></Link>
-                        <Link to="/Karriere"><p>Karriere</p></Link>
-                        <Link to="/Impressum"><p>Impressum</p></Link>
+                        <div className="navbar__content__links-container__mobile__container">
+                            <div className="navbar__content__links-container__mobile__container--regular" onClick={handleMobileProductClick}>
+                                <Link to="/Produkte"><p>Produkte<span className="caret" /></p></Link>
+                            </div>
+                            <div className={productMobile === true ? "navbar__content__links-container__mobile__container--expand" : "invisible"} onClick={handleMobileClick}>
+                                <Link to="/Produkte"><p>Produkt 1</p></Link>
+                                <Link to="/Produkte"><p>Produkt 2</p></Link>
+                                <Link to="/Produkte"><p>Produkt 3</p></Link>
+                                <Link to="/Produkte"><p>Produkt 4</p></Link>
+                                <Link to="/Produkte"><p>Produkt 5</p></Link>
+                            </div>
+                        </div>
+                        <div className="navbar__content__links-container__mobile__container">
+                            <div className="navbar__content__links-container__mobile__container--regular" onClick={handleMobileServiceClick}>
+                                <Link to="/Services"><p>Services<span className="caret" /></p></Link>
+                            </div>
+                            <div className={serviceMobile === true ? "navbar__content__links-container__mobile__container--expand" : "invisible"} onClick={handleMobileClick}>
+                                <Link to="/Services"><p>Service A</p></Link>
+                                <Link to="/Services"><p>Service B</p></Link>
+                                <Link to="/Services"><p>Service C</p></Link>
+                            </div>
+                        </div>
+                            <span onClick={handleMobileClick}>
+                                <Link to="/Unternehmen"><p>Unternehmen</p></Link>
+                                <Link to="/Karriere"><p>Karriere</p></Link>
+                                <Link to="/Impressum"><p>Impressum</p></Link>
+                            </span>
                     </div>
                     <div className="navbar__content__links-container__symbol-container">
                         <div className="navbar__content__links-container__symbol-container__icons">

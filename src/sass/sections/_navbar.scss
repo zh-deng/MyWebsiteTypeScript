@@ -10,6 +10,7 @@
     top: 0;
     @include util.flex-center;
     height: 5rem;
+    z-index: 99;
     
     @include util.breakpoint(large) {
         @include util.padding-horizontal(1em);
@@ -150,8 +151,9 @@
                 position: absolute;
                 @include util.flex-center;
                 flex-direction: column;
-                backdrop-filter: blur(util.rem(5));
-                @include util.dimensions(100%, 100%);
+                // backdrop-filter: blur(util.rem(5));
+                @include util.dimensions(100%, 100vh);
+                background-color: grey;
                 top: 0;
                 left: 0;
                 z-index: 99;
@@ -160,7 +162,7 @@
                 & > * {
                     width: 100%;
                     border-bottom: 1px solid;
-                    text-align: center
+                    text-align: center;
                 }
 
                 &__exit {
@@ -179,12 +181,23 @@
                         }
 
                         & > * {
-                            font-size: util.rem(30);
+                            font-size: util.rem(50);
                             padding: util.rem(10);
                         }
 
                         p {
                             font-size: util.rem(20);
+                        }
+                    }
+                }
+
+                &__container {
+
+                    &--expand {
+                        background-color: darkgrey;
+
+                        p {
+                            border-top: 1px solid white;
                         }
                     }
                 }
