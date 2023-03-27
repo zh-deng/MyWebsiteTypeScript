@@ -16,6 +16,7 @@ export const mobileswitchSlice = createSlice({
         toggleMobile: (state) => {
             state.mobile = state.mobile === false ? true : false;
             state.mobile === false ? document.body.style.overflow="auto" : document.body.style.overflow="hidden";
+            !state.mobile && (state.productMobile = state.serviceMobile = false);
         },
         toggleProduct: (state) => {
             state.productMobile = state.productMobile === false ? true : false;

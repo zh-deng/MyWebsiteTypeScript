@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { BsFillGridFill } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
 import DropdownMenu from "../components/DropdownMenu";
+import JobBar from "../components/JobBar";
 import {
     ActionSelect,
     addSelected,
@@ -24,6 +25,8 @@ const Career = () => {
         levelSelected,
         industrySelected,
         typeSelected,
+        fetchedJobs,
+        filteredJobs
     } = useAppSelector(selectJobsettings);
     const dispatch = useAppDispatch();
 
@@ -127,11 +130,26 @@ const Career = () => {
                             <div
                                 className={
                                     tilemode === false
-                                        ? "career__content__jobs__job-container__items--regular"
-                                        : "career__content__jobs__job-container__items--grild"
+                                        ? "career__content__jobs__job-container__items--bar"
+                                        : "career__content__jobs__job-container__items--grid"
                                 }
                             >
-                                Keine Jobs mit dieser Anforderung gefunden.
+                                {
+                                    fetchedJobs.map((item) => {
+                                        return (
+                                            <div
+                                                key={"jobID " + item.id}
+                                            >
+                                                <JobBar prop={item} />
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                            <div className={filteredJobs.length === 0 ? "career__content__jobs__job-container__items--empty" : "invisible"}>
+                                <h2>
+                                    Keine Jobs mit dieser Anforderung gefunden.
+                                </h2>
                             </div>
                         </div>
                     </div>

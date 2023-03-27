@@ -70,20 +70,23 @@
                     border-bottom: 1px solid;
 
                     &--mode {
-                        // width: 200px;
-                        @include util.flex-center-all;
+                        display: none;
 
-                        & span {
-                            width: fit-content;
-                            background-color: black;
-                            padding: 0.5rem;
-                            border: 1px solid;
+                        @include util.breakpoint(large) {
                             @include util.flex-center-all;
-                            cursor: pointer;
 
-                            &:hover {
-                                background-color: rgb(60, 60, 60);
-                            }
+                            & span {
+                                width: fit-content;
+                                background-color: black;
+                                padding: 0.5rem;
+                                border: 1px solid;
+                                @include util.flex-center-all;
+                                cursor: pointer;
+
+                                &:hover {
+                                    background-color: rgb(60, 60, 60);
+                                }
+                        }
                         }
                     }
                 }
@@ -93,6 +96,7 @@
                     background-color: grey;
                     width: 100%;
                     @include util.flex-center-all;
+                    flex-direction: column;
 
                     & > * {
                         background-color: blue;
@@ -100,12 +104,28 @@
                         @include util.flex-center-all;
                     }
 
-                    &--regular {
+                    &--bar {
+                        display: none;
 
+                        @include util.breakpoint(large) {
+                            @include util.flex-center-all;
+                            flex-direction: column;
+
+                            & div {
+                                width: 100%;
+                            }
+                        }
                     }
 
                     &--grid {
 
+                    }
+
+                    &--empty {
+                        height: 500px;
+                        border: 1px solid;
+                        text-align: center;
+                        letter-spacing: 0.05em;
                     }
                 }
             }

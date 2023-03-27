@@ -101,8 +101,6 @@ const Navbar = () => {
                                 <Link to="/Produkte"><p>Produkt 4</p></Link>
                                 <Link to="/Produkte"><p>Produkt 5</p></Link>
                             </div>
-                        </div>
-                        <div className="navbar__content__links-container__mobile__container">
                             <div className="navbar__content__links-container__mobile__container--regular" onClick={handleMobileServiceClick}>
                                 <Link to="/Services"><p>Services<span className="caret" /></p></Link>
                             </div>
@@ -111,12 +109,12 @@ const Navbar = () => {
                                 <Link to="/Services"><p>Service B</p></Link>
                                 <Link to="/Services"><p>Service C</p></Link>
                             </div>
-                        </div>
                             <span onClick={handleMobileClick}>
                                 <Link to="/Unternehmen"><p>Unternehmen</p></Link>
                                 <Link to="/Karriere"><p>Karriere</p></Link>
                                 <Link to="/Impressum"><p>Impressum</p></Link>
                             </span>
+                        </div>
                     </div>
                     <div className="navbar__content__links-container__symbol-container">
                         <div className="navbar__content__links-container__symbol-container__icons">

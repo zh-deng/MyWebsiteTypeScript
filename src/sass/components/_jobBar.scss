@@ -1,0 +1,51 @@
+@use "../util";
+
+.jobBar {
+    background-color: green;
+    @include util.margin-vertical(0.5rem);
+
+    &__teaser {
+        @include util.flex-center;
+        justify-content: space-around;
+        padding: 1rem;
+        cursor: pointer;
+        border: 1px solid black;
+
+        & span {
+            text-decoration: underline;
+        }
+
+        &:hover {
+            background-color: darkgreen;
+        }
+    }
+
+    &__expand {
+        padding: 2rem;
+        background-color: orange;
+
+        & > p {
+            text-align: end;
+            text-decoration: underline;
+            font-size: 1.3rem;
+
+        }
+
+        span {
+            display: flex;
+            align-items: flex-start;
+            @include util.margin-vertical(0.5rem);
+            padding: 0.2rem;
+
+            h4 {
+                @include util.flex-center;
+                width: 200px;
+            }
+
+            p {
+                word-wrap: break-word;
+                width: 80%;
+            }
+        }
+    }
+}

@@ -161,7 +161,7 @@
                 
                 & > * {
                     width: 100%;
-                    border-bottom: 1px solid;
+                    // border-bottom: 1px solid;
                     text-align: center;
                 }
 
@@ -193,12 +193,12 @@
 
                 &__container {
 
+                    & * {
+                        border-bottom: 1px solid;
+                    }
+
                     &--expand {
                         background-color: darkgrey;
-
-                        p {
-                            border-top: 1px solid white;
-                        }
                     }
                 }
             }
