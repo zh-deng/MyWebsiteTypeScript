@@ -3,6 +3,7 @@ import { BsFillGridFill } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
 import DropdownMenu from "../components/DropdownMenu";
 import JobBar from "../components/JobBar";
+import JobTile from "../components/JobTile";
 import {
     ActionSelect,
     addSelected,
@@ -168,9 +169,28 @@ const Career = () => {
                         <div className="career__content__jobs__job-container__items">
                             <div
                                 className={
+                                    tilemode === true
+                                        ? "career__content__jobs__job-container__items--grid"
+                                        : "invisible"
+                                }
+                            >
+                                {
+                                    filteredJobs.map((item) => {
+                                        return (
+                                            <div
+                                                key={"jobID " + item.id}
+                                            >
+                                                <JobTile prop={item} />
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                            <div
+                                className={
                                     tilemode === false
                                         ? "career__content__jobs__job-container__items--bar"
-                                        : "career__content__jobs__job-container__items--grid"
+                                        : "invisible"
                                 }
                             >
                                 {

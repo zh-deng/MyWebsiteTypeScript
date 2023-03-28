@@ -1,0 +1,48 @@
+@use "../util";
+
+.jobTile {
+    background-color: red;
+    padding: 2rem;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 1px solid black;
+
+    &__teaser {
+
+        & > * {
+            @include util.padding-vertical(0.2rem);
+        }
+
+        & > p {
+            font-size: 1.5rem;
+
+            @include util.breakpoint(large) {
+                font-size: 1.1rem;
+            }
+        }
+
+        & span {
+            @include util.flex-center;
+            gap: 1rem;
+            word-break: normal;
+        }
+
+        &__link {
+            position: absolute;
+            backdrop-filter: blur(2px);
+            padding: 2rem;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            height: 45%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            z-index: 4;
+            font-size: 1.5rem;
+            text-decoration: underline;
+        }
+    }
+}

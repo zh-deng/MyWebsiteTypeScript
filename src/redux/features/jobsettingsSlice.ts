@@ -18,7 +18,7 @@ export interface JobProps {
     teaserClicked: boolean;
 }
 
-const tilemode: boolean = false;
+const tilemode: boolean = true;
 const filter: boolean = false;
 const locations: string[] = ["Berlin", "München", "Köln", "Nürnberg"];
 const level: string[] = [

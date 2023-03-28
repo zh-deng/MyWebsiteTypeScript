@@ -52,14 +52,17 @@
             @include util.flex-center-all;
             background-color: green;
             padding: 1rem;
-            width: 80%;
+            width: max(80%, 375px);
 
             &__job-container {
                 @include util.flex-center-all;
                 flex-direction: column;
                 width: 100%;
                 background-color: red;
-                padding: 2rem;
+
+                @include util.breakpoint(medium) {
+                    padding: 2rem;
+                }
 
                 &__filter {
                     @include util.flex-center-all;
@@ -98,11 +101,15 @@
                 }
 
                 &__items {
-                    padding: 2rem;
                     background-color: grey;
                     width: 100%;
                     @include util.flex-center-all;
                     flex-direction: column;
+                    @include util.padding-vertical(2rem);
+
+                    @include util.breakpoint(medium) {
+                        padding: 2rem;
+                    }
 
                     &--bar,
                     &--grid {
@@ -125,7 +132,14 @@
                     }
 
                     &--grid {
-
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        gap: 2rem;
+                        grid-auto-rows: 400px;
+                        
+                        @include util.breakpoint(large) {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
                     }
 
                     &--empty {
