@@ -1,19 +1,32 @@
 :root {
-    --background-color: rgb(0, 0, 61);
+    --background-color-pages: hsl(240, 100%, 12%);
     --text-color: white;
-    --primary-color: darkblue;
+    // --primary-color: darkblue;
+    --primary-color: hsl(0, 0%, 100%);
     --secondary-color: black;
+    --background-color-layout: black;
     --hover-color: hsl(0, 0%, 68%);
     --button-color: blue;
     --button-color-hover: darkblue;
     --login-text-color: white;
+    --background-color-footerlinks: hsla(0, 0%, 50%, 0.167);
+    --background-color-job: grey;
+    --background-color-job-hover: darkgrey;
+    --background-color-job-expand: black;
+    --background-color-login-section: rgb(183, 183, 183);
 }
 
-.dark-theme {
-    --background-color: white;
+.light-theme {
+    --background-color-pages: hsl(0, 0%, 68%);
     --text-color: black;
-    --primary-color: darkblue;
+    // --primary-color: darkblue;
+    --primary-color: black;
     --secondary-color: white;
+    --background-color-layout: white;
     --button-color: orange;
     --button-color-hover: darkorange;
+    --background-color-job: white;
+    --background-color-job-hover: rgb(145, 145, 145);
+    --background-color-job-expand: white;
+    --background-color-login-section: white
 }

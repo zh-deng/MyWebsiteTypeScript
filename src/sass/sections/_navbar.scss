@@ -2,7 +2,7 @@
 @use "../globals";
 
 .navbar {
-    background-color: var(--secondary-color);
+    background-color: var(--background-color-layout);
     border-bottom: 1px solid;
     padding: 0.5em 1rem;
     position: fixed;
@@ -54,7 +54,7 @@
                         position: absolute;
                         @include util.flex-center-all;
                         flex-direction: column;
-                        background-color: var(--secondary-color);
+                        background-color: var(--background-color-layout);
                         width: util.rem(200);
                         top: util.rem(50);
                         left: 50%;

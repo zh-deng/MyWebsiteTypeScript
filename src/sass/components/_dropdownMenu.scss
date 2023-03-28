@@ -11,32 +11,33 @@
         &__category {
             display: flex;
             justify-content: center;
-            background-color: grey;
+
             padding: 0.4rem 1.5rem;
             border-radius: 0.5rem;
             margin: 0.5rem;
-            border: 1px solid black;
+            border: 1px solid transparent;
             cursor: pointer;
             width: 100%;
             
 
             &:hover {
-                background-color: darkgrey;
+                background-color: var(--background-color-job-hover);
+                border: 1px solid black;
             }
         }
 
         &__options {
             position: absolute;
-            background-color: black;
+            background-color: var(--secondary-color);
             width: 270px;
             top: 4rem;
             max-height: 310px;
             padding: 0.5rem;
             z-index: 99;
-            // @include util.flex-center-all;
             display: flex;
             justify-content: center;
             overflow: auto;
+            border: 1px solid;
             
             & ul {
                 list-style-type: none;

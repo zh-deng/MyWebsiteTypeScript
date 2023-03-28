@@ -24,4 +24,8 @@ body {
 
 .App {
     width: 100%;
+
+    &__routes {
+        background-color: var(--background-color-pages);
+    }
 }

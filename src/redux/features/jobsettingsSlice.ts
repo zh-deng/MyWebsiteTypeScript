@@ -35,7 +35,7 @@ const type: string[] = ["Teilzeit", "Vollzeit"];
 const fetchedJobs: JobProps[] = [
     {
         id: 1,
-        title: "Junior-Frontend-Entwickler1",
+        title: "Junior-Frontend-Entwickler",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dolore itaque earum sequi, provident eum nesciunt assumenda vitae optio tenetur repellendus maiores esse in non. Obcaecati perferendis, optio vitae officiis accusamus ea temporibus, eaque, in illum aliquam autem deserunt exercitationem.",
         location: "München",
@@ -46,56 +46,56 @@ const fetchedJobs: JobProps[] = [
     },
     {
         id: 2,
-        title: "Junior-Frontend-Entwickler2",
+        title: "Verkäufer",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dolore itaque earum sequi, provident eum nesciunt assumenda vitae optio tenetur repellendus maiores esse in non. Obcaecati perferendis, optio vitae officiis accusamus ea temporibus, eaque, in illum aliquam autem deserunt exercitationem.",
         location: "Berlin",
         level: "Berufseinsteiger",
-        industry: "IT und Softwareentwicklung",
+        industry: "Vertrieb und Handel",
         type: "Teilzeit",
         teaserClicked: false,
     },
     {
         id: 3,
-        title: "Junior-Frontend-Entwickler3",
+        title: "Senior-Backend-Entwickler",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dolore itaque earum sequi, provident eum nesciunt assumenda vitae optio tenetur repellendus maiores esse in non. Obcaecati perferendis, optio vitae officiis accusamus ea temporibus, eaque, in illum aliquam autem deserunt exercitationem.",
         location: "Berlin",
-        level: "Berufseinsteiger",
+        level: "Mit Berufserfahrung",
         industry: "IT und Softwareentwicklung",
         type: "Vollzeit",
         teaserClicked: false,
     },
     {
         id: 4,
-        title: "Junior-Frontend-Entwickler4",
+        title: "Praktikant Fullstack-Entwicklung",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dolore itaque earum sequi, provident eum nesciunt assumenda vitae optio tenetur repellendus maiores esse in non. Obcaecati perferendis, optio vitae officiis accusamus ea temporibus, eaque, in illum aliquam autem deserunt exercitationem.",
         location: "Köln",
-        level: "Berufseinsteiger",
+        level: "Student/Praktikant",
         industry: "IT und Softwareentwicklung",
         type: "Teilzeit",
         teaserClicked: false,
     },
     {
         id: 5,
-        title: "Junior-Frontend-Entwickler5",
+        title: "Sales-Manager",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dolore itaque earum sequi, provident eum nesciunt assumenda vitae optio tenetur repellendus maiores esse in non. Obcaecati perferendis, optio vitae officiis accusamus ea temporibus, eaque, in illum aliquam autem deserunt exercitationem.",
         location: "Nürnberg",
-        level: "Berufseinsteiger",
-        industry: "IT und Softwareentwicklung",
+        level: "Mit Berufserfahrung",
+        industry: "Vertrieb und Handel",
         type: "Vollzeit",
         teaserClicked: false,
     },
     {
         id: 6,
-        title: "Junior-Frontend-Entwickler6",
+        title: "Praktikant im Verkauf",
         description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dolore itaque earum sequi, provident eum nesciunt assumenda vitae optio tenetur repellendus maiores esse in non. Obcaecati perferendis, optio vitae officiis accusamus ea temporibus, eaque, in illum aliquam autem deserunt exercitationem.",
         location: "München",
-        level: "Berufseinsteiger",
-        industry: "IT und Softwareentwicklung",
+        level: "Student/Praktikant",
+        industry: "Vertrieb und Handel",
         type: "Teilzeit",
         teaserClicked: false,
     },

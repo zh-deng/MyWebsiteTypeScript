@@ -1,7 +1,7 @@
 @use "../util";
 
 .footer {
-    background-color: var(--secondary-color);
+    background-color: var(--background-color-layout);
     @include util.padding-vertical(util.rem(25));
     @include util.flex-center-all;
     
@@ -38,7 +38,7 @@
 
         &__links-container {
             @include util.flex-center-all;
-            background-color: rgba(128, 128, 128, 0.167);
+            background-color: var(--background-color-footerlinks);
             width: 100%;
             padding: util.rem(10);
 

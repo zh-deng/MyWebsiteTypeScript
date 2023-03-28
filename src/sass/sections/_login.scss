@@ -2,8 +2,7 @@
 
 .login {
     height: util.rem(600);
-    // background-color: rgba(128, 128, 128, 0.167);
-    background-color: rgb(106, 96, 96);
+
     @include util.flex-center-all;
     color: var(--login-text-color);
 
@@ -18,7 +17,7 @@
         padding: util.rem(10);
 
         @include util.breakpoint(large) {
-            background-color: rgb(183, 183, 183);
+            background-color: var(--background-color-login-section);
             @include util.dimensions(util.rem(1000), util.rem(700));
             border-radius: util.rem(50);
             padding: util.rem(10);
