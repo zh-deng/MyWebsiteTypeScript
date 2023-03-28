@@ -10,13 +10,16 @@ export const mobileswitchSlice = createSlice({
     initialState: {
         mobile,
         productMobile,
-        serviceMobile
+        serviceMobile,
     },
     reducers: {
         toggleMobile: (state) => {
             state.mobile = state.mobile === false ? true : false;
-            state.mobile === false ? document.body.style.overflow="auto" : document.body.style.overflow="hidden";
-            !state.mobile && (state.productMobile = state.serviceMobile = false);
+            state.mobile === false
+                ? (document.body.style.overflow = "auto")
+                : (document.body.style.overflow = "hidden");
+            !state.mobile &&
+                (state.productMobile = state.serviceMobile = false);
         },
         toggleProduct: (state) => {
             state.productMobile = state.productMobile === false ? true : false;
@@ -25,12 +28,13 @@ export const mobileswitchSlice = createSlice({
         toggleService: (state) => {
             state.serviceMobile = state.serviceMobile === false ? true : false;
             state.serviceMobile && (state.productMobile = false);
-        }
-    }
+        },
+    },
 });
 
 export const selectMobileswitch = (state: RootState) => state.mobileswitch;
 
-export const { toggleMobile, toggleProduct, toggleService } = mobileswitchSlice.actions;
+export const { toggleMobile, toggleProduct, toggleService } =
+    mobileswitchSlice.actions;
 
 export default mobileswitchSlice.reducer;

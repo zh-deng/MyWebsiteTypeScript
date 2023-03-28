@@ -1,0 +1,55 @@
+@use "../util";
+
+.section {
+
+    &__content {
+        @include util.flex-center-all;
+        padding: 2rem 0.5rem;
+        flex-wrap: wrap-reverse;
+
+        @include util.breakpoint(medium) {
+            padding: 2rem;
+        }
+
+        &__info {
+            width: 100%;
+            padding: 2rem;
+            @include util.flex-center-all;
+            flex-direction: column;
+            flex-wrap: wrap;
+            text-align: center;
+            gap: 2rem;
+            font-size: 1.3rem;
+
+            @include util.breakpoint(large) {
+                width: 50%;
+            }
+            
+            & p {
+                width: 100%;
+
+                @include util.breakpoint(large) {
+                    width: 80%;
+                }
+            }
+        }
+
+        &__image {
+            width: 100%;
+            @include util.flex-center-all;
+
+            @include util.breakpoint(large) {
+                width: 50%;
+            }
+
+            img {
+                width: 90%;
+            }
+        }
+    }
+}
+
+.text--right {
+    flex-direction: row-reverse;
+    background-color: var(--background-color-landingpage-section);
+}

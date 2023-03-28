@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { BsFillGridFill } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
 import DropdownMenu from "../components/DropdownMenu";
@@ -29,7 +29,7 @@ const Career = () => {
         industrySelected,
         typeSelected,
         fetchedJobs,
-        filteredJobs
+        filteredJobs,
     } = useAppSelector(selectJobsettings);
     const dispatch = useAppDispatch();
 
@@ -46,10 +46,10 @@ const Career = () => {
     useEffect(() => {
         const handleOutsideClick = (event: MouseEvent) => {
             if (
-                (industryButtonRef.current?.contains(event.target as Node) ||
+                industryButtonRef.current?.contains(event.target as Node) ||
                 locationsButtonRef.current?.contains(event.target as Node) ||
                 levelButtonRef.current?.contains(event.target as Node) ||
-                typeButtonRef.current?.contains(event.target as Node))
+                typeButtonRef.current?.contains(event.target as Node)
             ) {
                 return;
             }
@@ -81,8 +81,20 @@ const Career = () => {
         let currentList = [...fetchedJobs];
         let filteredList: JobProps[] = [];
         currentList.map((job) => {
-            locationsSelected.length < 1 && industrySelected.length < 1 && levelSelected.length < 1 && typeSelected.length < 1 && (filteredList = [...filteredList, job])
-            || (locationsSelected.includes(job.location) || locationsSelected.length < 1) && (industrySelected.includes(job.industry) || industrySelected.length < 1) && (levelSelected.includes(job.level) || levelSelected.length < 1) && (typeSelected.includes(job.type) || typeSelected.length < 1) && (filteredList = [...filteredList, job]);
+            (locationsSelected.length < 1 &&
+                industrySelected.length < 1 &&
+                levelSelected.length < 1 &&
+                typeSelected.length < 1 &&
+                (filteredList = [...filteredList, job])) ||
+                ((locationsSelected.includes(job.location) ||
+                    locationsSelected.length < 1) &&
+                    (industrySelected.includes(job.industry) ||
+                        industrySelected.length < 1) &&
+                    (levelSelected.includes(job.level) ||
+                        levelSelected.length < 1) &&
+                    (typeSelected.includes(job.type) ||
+                        typeSelected.length < 1) &&
+                    (filteredList = [...filteredList, job]));
         });
         dispatch(setFilteredJobs(filteredList));
     };
@@ -104,9 +116,7 @@ const Career = () => {
         <div className="career">
             <div className="career__content">
                 <div className="career__content__hero">
-                    <h3>
-                        Finde deinen Traumjob
-                    </h3>
+                    <h3>Finde deinen Traumjob</h3>
                 </div>
                 <div className="career__content__jobs">
                     <div className="career__content__jobs__job-container">
@@ -174,17 +184,13 @@ const Career = () => {
                                         : "invisible"
                                 }
                             >
-                                {
-                                    filteredJobs.map((item) => {
-                                        return (
-                                            <div
-                                                key={"jobID " + item.id}
-                                            >
-                                                <JobTile prop={item} />
-                                            </div>
-                                        )
-                                    })
-                                }
+                                {filteredJobs.map((item) => {
+                                    return (
+                                        <div key={"jobID " + item.id}>
+                                            <JobTile prop={item} />
+                                        </div>
+                                    );
+                                })}
                             </div>
                             <div
                                 className={
@@ -193,21 +199,24 @@ const Career = () => {
                                         : "invisible"
                                 }
                             >
-                                {
-                                    filteredJobs.map((item) => {
-                                        return (
-                                            <div
-                                                key={"jobID " + item.id}
-                                            >
-                                                <JobBar prop={item} />
-                                            </div>
-                                        )
-                                    })
-                                }
+                                {filteredJobs.map((item) => {
+                                    return (
+                                        <div key={"jobID " + item.id}>
+                                            <JobBar prop={item} />
+                                        </div>
+                                    );
+                                })}
                             </div>
-                            <div className={filteredJobs.length === 0 ? "career__content__jobs__job-container__items--empty" : "invisible"}>
+                            <div
+                                className={
+                                    filteredJobs.length === 0
+                                        ? "career__content__jobs__job-container__items--empty"
+                                        : "invisible"
+                                }
+                            >
                                 <h2>
-                                    Derzeit gibt es keine Jobs mit dieser Anforderung.
+                                    Derzeit gibt es keine Jobs mit dieser
+                                    Anforderung.
                                 </h2>
                             </div>
                         </div>

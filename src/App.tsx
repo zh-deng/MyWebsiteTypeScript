@@ -1,4 +1,3 @@
-import React from "react";
 import { About, Career, Footer, Hero, Impressum, LandingPage, Login, Navbar, Products, Registration, Services} from "./containers"; 
 import { Routes, Route } from "react-router-dom";
 

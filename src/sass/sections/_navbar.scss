@@ -2,14 +2,13 @@
 @use "../globals";
 
 .navbar {
+    @include util.dimensions(100%, 5rem);
     background-color: var(--background-color-layout);
     border-bottom: 1px solid;
     padding: 0.5em 1rem;
     position: fixed;
-    width: 100%;
     top: 0;
     @include util.flex-center;
-    height: 5rem;
     z-index: 99;
     
     @include util.breakpoint(large) {
@@ -151,9 +150,8 @@
                 position: absolute;
                 @include util.flex-center;
                 flex-direction: column;
-                // backdrop-filter: blur(util.rem(5));
                 @include util.dimensions(100%, 100vh);
-                background-color: grey;
+                background-color: var(--color-grey);
                 top: 0;
                 left: 0;
                 z-index: 99;
@@ -161,7 +159,6 @@
                 
                 & > * {
                     width: 100%;
-                    // border-bottom: 1px solid;
                     text-align: center;
                 }
 
@@ -198,7 +195,7 @@
                     }
 
                     &--expand {
-                        background-color: darkgrey;
+                        background-color: var(--color-darkgrey);
                     }
                 }
             }

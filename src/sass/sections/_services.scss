@@ -1,0 +1,14 @@
+@use "../util";
+
+
+.services {
+    padding: 3rem;
+    height: 80vh;
+    font-size: 2rem;
+
+    &__content {
+        height: 100%;
+        @include util.flex-center-all;
+        text-align: center;
+    }
+}

@@ -6,13 +6,14 @@ const defaultLanguage: boolean = true;
 export const languageswitchSlice = createSlice({
     name: "languageswitch",
     initialState: {
-        defaultLanguage
+        defaultLanguage,
     },
     reducers: {
         switchLanguage: (state) => {
-            state.defaultLanguage = state.defaultLanguage === false ? true : false;
-        }
-    }
+            state.defaultLanguage =
+                state.defaultLanguage === false ? true : false;
+        },
+    },
 });
 
 export const selectLanguageswitch = (state: RootState) => state.languageswitch;

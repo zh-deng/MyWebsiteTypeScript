@@ -1,5 +1,9 @@
+@use "../util";
 
 .landingpage {
-    background-color: rgba(128, 128, 128, 0.167);
-    padding: 1rem;
+
+    &__content {
+        @include util.flex-center-all;
+        flex-direction: column;
+    }
 }

@@ -1,7 +1,6 @@
 :root {
     --background-color-pages: hsl(240, 100%, 12%);
     --text-color: white;
-    // --primary-color: darkblue;
     --primary-color: hsl(0, 0%, 100%);
     --secondary-color: black;
     --background-color-layout: black;
@@ -14,12 +13,15 @@
     --background-color-job-hover: darkgrey;
     --background-color-job-expand: black;
     --background-color-login-section: rgb(183, 183, 183);
+    --background-color-landingpage-section: orange;
+    --color-darkgrey: darkgrey;
+    --color-grey: grey;
+    --background-color-login-form: rgb(60, 148, 189);
 }
 
 .light-theme {
     --background-color-pages: hsl(0, 0%, 68%);
     --text-color: black;
-    // --primary-color: darkblue;
     --primary-color: black;
     --secondary-color: white;
     --background-color-layout: white;
@@ -28,5 +30,6 @@
     --background-color-job: white;
     --background-color-job-hover: rgb(145, 145, 145);
     --background-color-job-expand: white;
-    --background-color-login-section: white
+    --background-color-login-section: white;
+    --background-color-landingpage-section: yellow;
 }

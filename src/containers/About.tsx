@@ -1,10 +1,9 @@
-import React from "react";
 
 const About = () => {
     return (
         <div className="about">
             <div className="about__content">
-                About
+                Die Seite Unternehmen ist derzeit noch in Bearbeitung.
             </div>
         </div>
     );

@@ -3,8 +3,7 @@
 .darkmodeswitch {
     @include util.flex-center;
     justify-content: center;
-    width: util.rem(30);
-    height: util.rem(30);
+    @include util.dimensions(util.rem(30), util.rem(30));
     font-size: util.rem(30);
     background-color: hsl(0, 0%, 50%);
     border-radius: util.rem(20);

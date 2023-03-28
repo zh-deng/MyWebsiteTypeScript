@@ -1,10 +1,9 @@
-import React from "react";
 
 const Products = () => {
     return (
         <div className="products">
             <div className="products__content">
-                Produkte
+                Die Seite Produkte ist derzeit noch in Bearbeitung.
             </div>
         </div>
     );

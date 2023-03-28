@@ -3,7 +3,7 @@
 .jobTile {
     background-color: var(--background-color-job);
     padding: 2rem;
-    height: 400px;
+    height: util.rem(400);
     position: relative;
     overflow: hidden;
     border-radius: 1rem;
@@ -34,13 +34,12 @@
         }
 
         &__link {
+            @include util.dimensions(100%, 45%);
             position: absolute;
             backdrop-filter: blur(2px);
             padding: 2rem;
-            width: 100%;
             bottom: 0;
             left: 0;
-            height: 45%;
             display: flex;
             align-items: flex-end;
             justify-content: flex-end;

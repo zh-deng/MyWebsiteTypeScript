@@ -1,7 +1,10 @@
-import React from "react";
 import { CiSun } from "react-icons/ci";
 import { MdOutlineDarkMode } from "react-icons/md";
-import { changeAnimation, selectDarkmode, toggleDarkmode } from "../redux/features/darkmodeSlice";
+import {
+    changeAnimation,
+    selectDarkmode,
+    toggleDarkmode,
+} from "../redux/features/darkmodeSlice";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
 
 const Darkmodeswitch = () => {
@@ -16,8 +19,8 @@ const Darkmodeswitch = () => {
         }, 1000);
     };
 
-    const handleThemeAnimation:() => string = () => {
-        switch(animation) {
+    const handleThemeAnimation: () => string = () => {
+        switch (animation) {
             case "zoomOut":
                 return "darkmodeswitch--zoomOut";
             case "zoomIn":
@@ -26,14 +29,14 @@ const Darkmodeswitch = () => {
                 return "";
         }
     };
-    
+
     return (
         <div className="darkmodeswitch" onClick={handleThemeClick}>
-            {
-                darkmode === true ?
-                <CiSun className={handleThemeAnimation()} /> :
+            {darkmode === true ? (
+                <CiSun className={handleThemeAnimation()} />
+            ) : (
                 <MdOutlineDarkMode className={handleThemeAnimation()} />
-            }
+            )}
         </div>
     );
 };

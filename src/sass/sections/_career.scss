@@ -7,9 +7,8 @@
         flex-direction: column;
 
         &__hero {
+            @include util.dimensions(100%, 50vh);
             padding: 1rem;
-            height: 50vh;
-            width: 100%;
             background-image: url(../../assets/career/job_banner.jpg);
             background-position: center;
             background-size: cover;
@@ -21,7 +20,7 @@
             }
 
             @include util.breakpoint(large) {
-                height: 750px;
+                height: util.rem(750);
             }
 
             & h3 {
@@ -50,7 +49,7 @@
         &__jobs {
             @include util.flex-center-all;
             padding: 1rem;
-            width: max(80%, 375px);
+            width: max(80%, util.rem(375));
 
             &__job-container {
                 @include util.flex-center-all;
@@ -130,7 +129,7 @@
                         display: grid;
                         grid-template-columns: 1fr;
                         gap: 2rem;
-                        grid-auto-rows: 400px;
+                        grid-auto-rows: util.rem(400);
                         
                         @include util.breakpoint(large) {
                             grid-template-columns: repeat(2, 1fr);
@@ -138,12 +137,11 @@
                     }
 
                     &--empty {
-                        height: 500px;
+                        @include util.dimensions(100%, util.rem(500));
                         border: 1px solid;
                         text-align: center;
                         letter-spacing: 0.05em;
-                        background-color: blue;
-                        width: 100%;
+                        color: white;
                         @include util.flex-center-all;
                     }
                 }

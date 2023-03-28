@@ -2,7 +2,6 @@
 
 .login {
     height: util.rem(600);
-
     @include util.flex-center-all;
     color: var(--login-text-color);
 
@@ -35,7 +34,7 @@
                 @include util.dimensions(50%, 100%);
                 border-top-left-radius: util.rem(40);
                 border-bottom-left-radius: util.rem(40);
-                background-color: darkgrey;
+                background-color: var(--color-darkgrey);
                 background-image: url(../../assets/login/login_welcomeback.jpg);
                 background-position: center;
                 background-size: cover;
@@ -54,7 +53,7 @@
 
                 &--registration {
                     @include util.flex-center-all;
-                    background-color: grey;
+                    background-color: var(--color-grey);
                     @include util.dimensions(70%, 100%);
                     border-top-left-radius: 2rem;
                     color: var(--login-text-color);
@@ -75,7 +74,7 @@
                 @include util.dimensions(50%, 100%);
                 border-top-right-radius: util.rem(40);
                 border-bottom-right-radius: util.rem(40);
-                background-color: rgb(60, 148, 189);
+                background-color: var(--background-color-login-form);
                 padding: 1rem 1rem 1rem 0;
                 @include util.flex-center;
                 flex-direction: column;

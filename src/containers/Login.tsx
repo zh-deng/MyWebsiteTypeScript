@@ -1,4 +1,3 @@
-import React from "react";
 import { HiOutlineMail } from "react-icons/hi";
 import { AiOutlineLock, AiOutlineUnlock } from "react-icons/ai";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
@@ -11,7 +10,7 @@ const Login = () => {
 
     const handlePasswordClick = () => {
         dispatch(togglePasswordVisibility());
-    }
+    };
 
     return (
         <div className="login">
@@ -20,9 +19,7 @@ const Login = () => {
                     <div className="login__content__left__switch-container">
                         <Link to="/Registrierung">
                             <div className="login__content__left__switch-container--registration">
-                                <h1>
-                                    Registrieren
-                                </h1>
+                                <h1>Registrieren</h1>
                             </div>
                         </Link>
                     </div>
@@ -30,9 +27,7 @@ const Login = () => {
                 <div className="login__content__right">
                     <div className="login__content__right__switch-container">
                         <div className="login__content__right__switch-container--login">
-                            <h1>
-                                Log-In
-                            </h1>
+                            <h1>Log-In</h1>
                         </div>
                     </div>
                     <div className="login__content__right__login">
@@ -40,9 +35,7 @@ const Login = () => {
                             <form>
                                 <div className="loginForm__field">
                                     <div className="loginForm__field__email">
-                                        <h6>
-                                            Email-Adresse
-                                        </h6>
+                                        <h6>Email-Adresse</h6>
                                         <div className="loginForm__field__email__input">
                                             <input
                                                 type="email"
@@ -55,42 +48,45 @@ const Login = () => {
                                         </div>
                                     </div>
                                     <div className="loginForm__field__password">
-                                        <h6>
-                                            Passwort
-                                        </h6>
+                                        <h6>Passwort</h6>
                                         <div className="loginForm__field__password__input">
                                             <input
-                                                type={passwordHidden === true ? "password" : "text"}
+                                                type={
+                                                    passwordHidden === true
+                                                        ? "password"
+                                                        : "text"
+                                                }
                                                 name="password"
                                                 id="password"
                                                 placeholder="Passwort"
                                                 required
                                             />
-                                            <div className="loginForm__field__password__input--icon" onClick={handlePasswordClick}>
-                                                {
-                                                    passwordHidden === true ? <AiOutlineLock /> : <AiOutlineUnlock />
-                                                }
+                                            <div
+                                                className="loginForm__field__password__input--icon"
+                                                onClick={handlePasswordClick}
+                                            >
+                                                {passwordHidden === true ? (
+                                                    <AiOutlineLock />
+                                                ) : (
+                                                    <AiOutlineUnlock />
+                                                )}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="loginForm__forgot-password">
                                     <a href="">
-                                        <p>
-                                            Passwort vergessen
-                                        </p>
+                                        <p>Passwort vergessen</p>
                                     </a>
                                 </div>
                                 <div className="loginForm__button">
-                                    <input
-                                        type="submit"
-                                        value="Anmelden"
-                                    />
+                                    <input type="submit" value="Anmelden" />
                                 </div>
                                 <div className="loginForm__field__register-link">
                                     <Link to="/Registrierung">
                                         <p>
-                                            Noch kein Konto? Registriere dich jetzt!
+                                            Noch kein Konto? Registriere dich
+                                            jetzt!
                                         </p>
                                     </Link>
                                 </div>

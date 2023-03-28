@@ -51,10 +51,11 @@
             margin: 1.5rem;
             @include util.growLeft;
 
-            & > * {
+            & > * p {
             background-color: var(--button-color);
             padding: util.rem(10) util.rem(15);
             border-radius: util.rem(10);
+            color: white;
             
             &:hover {
                 background-color: var(--button-color-hover);

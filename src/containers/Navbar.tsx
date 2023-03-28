@@ -1,4 +1,3 @@
-import React from "react";
 import companyLogo_bright from "../assets/logo/logo_transparent.png";
 import companyLogo_dark from "../assets/logo/logo_transparent_dark.png"
 import germanFlag from "../assets/countryFlag/germany.png";
@@ -53,19 +52,19 @@ const Navbar = () => {
                         <div className="navbar__content__links-container__web__container">
                             <Link to="/Produkte"><p>Produkte<span className="caret" /></p></Link>
                             <div className="navbar__content__links-container__web__container--expand">
-                                <Link to=""><p>Produkt 1</p></Link>
-                                <Link to=""><p>Produkt 2</p></Link>
-                                <Link to=""><p>Produkt 3</p></Link>
-                                <Link to=""><p>Produkt 4</p></Link>
-                                <Link to=""><p>Produkt 5</p></Link>
+                                <Link to="/Produkte"><p>Produkt 1</p></Link>
+                                <Link to="/Produkte"><p>Produkt 2</p></Link>
+                                <Link to="/Produkte"><p>Produkt 3</p></Link>
+                                <Link to="/Produkte"><p>Produkt 4</p></Link>
+                                <Link to="/Produkte"><p>Produkt 5</p></Link>
                             </div>
                         </div>
                         <div className="navbar__content__links-container__web__container">
                             <Link to="/Services"><p>Services<span className="caret" /></p></Link>
                             <div className="navbar__content__links-container__web__container--expand">
-                                <Link to=""><p>Service A</p></Link>
-                                <Link to=""><p>Service B</p></Link>
-                                <Link to=""><p>Service C</p></Link>
+                                <Link to="/Services"><p>Service A</p></Link>
+                                <Link to="/Services"><p>Service B</p></Link>
+                                <Link to="/Services"><p>Service C</p></Link>
                             </div>
                         </div>
                         <Link to="/Unternehmen"><p>Unternehmen</p></Link>

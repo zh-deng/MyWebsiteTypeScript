@@ -6,13 +6,14 @@ const passwordHidden: boolean = true;
 export const uiSlice = createSlice({
     name: "ui",
     initialState: {
-        passwordHidden
+        passwordHidden,
     },
     reducers: {
         togglePasswordVisibility: (state) => {
-            state.passwordHidden = state.passwordHidden === false ? true : false;
-        }
-    }
+            state.passwordHidden =
+                state.passwordHidden === false ? true : false;
+        },
+    },
 });
 
 export const selectUi = (state: RootState) => state.ui;

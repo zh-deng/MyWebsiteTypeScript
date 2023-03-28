@@ -1,0 +1,54 @@
+@use "../util";
+
+.impressum {
+    padding: 2rem;
+    @include util.flex-center-all;
+
+    &__content {
+        width: 100%;
+        @include util.margin-vertical(5rem);
+
+        @include util.breakpoint(large) {
+            width: 60%;
+        }
+
+        &__contact {
+            @include util.flex-center-all;
+            flex-wrap: wrap-reverse;
+            gap: 10rem;
+            margin-bottom: 10rem;
+            
+            img {
+                @include util.dimensions(util.rem(200), auto);
+            }
+
+            &--info {
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 1rem;
+                flex-direction: column;
+                font-size: 1.4rem;
+            }
+        }
+
+        &__address {
+            @include util.flex-center-all;
+            flex-wrap: wrap-reverse;
+            gap: 10rem;
+
+            img {
+                @include util.dimensions(util.rem(300), auto);
+            }
+
+            &--info {
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 1rem;
+                flex-direction: column;
+                font-size: 1.4rem;
+            }
+        }
+    }
+}
