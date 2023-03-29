@@ -7,47 +7,73 @@
     &__content {
         width: 100%;
         @include util.margin-vertical(5rem);
+        @include util.flex-center-all;
+        flex-direction: column;
 
         @include util.breakpoint(large) {
-            width: 60%;
+            width: 100%;
         }
 
         &__contact {
-            @include util.flex-center-all;
+            @include util.flex-center;
+            justify-content: center;
             flex-wrap: wrap-reverse;
             gap: 10rem;
             margin-bottom: 10rem;
-            
-            img {
-                @include util.dimensions(util.rem(200), auto);
+            width: 100%;
+
+            @include util.breakpoint(small) {
+                justify-content: center;
             }
 
             &--info {
+                width: min(350px, 100%);
                 display: flex;
                 align-items: flex-start;
                 justify-content: center;
                 gap: 1rem;
                 flex-direction: column;
                 font-size: 1.4rem;
+            }
+
+            &--img {
+                @include util.flex-center-all;
+                width: min(350px, 100%);
+
+                img {
+                    @include util.dimensions(util.rem(200), auto);
+                }
             }
         }
 
         &__address {
-            @include util.flex-center-all;
+            @include util.flex-center;
+            justify-content: center;
             flex-wrap: wrap-reverse;
             gap: 10rem;
+            width: 100%;
 
-            img {
-                @include util.dimensions(util.rem(300), auto);
+            @include util.breakpoint(small) {
+                justify-content: center;
             }
 
             &--info {
+                width: min(350px, 100%);
                 display: flex;
                 align-items: flex-start;
                 justify-content: center;
                 gap: 1rem;
                 flex-direction: column;
                 font-size: 1.4rem;
+            }
+
+            &--img {
+                @include util.flex-center-all;
+                width: min(350px, 100%);
+
+                img {
+                    @include util.dimensions(util.rem(300), auto);
+                }
             }
         }
     }

@@ -4,7 +4,7 @@
 
     &__content {
         @include util.flex-center-all;
-        padding: 2rem 0.5rem;
+        padding: 2rem 0.3rem;
         flex-wrap: wrap-reverse;
 
         @include util.breakpoint(medium) {
@@ -13,7 +13,7 @@
 
         &__info {
             width: 100%;
-            padding: 2rem;
+            @include util.padding-vertical(2rem);
             @include util.flex-center-all;
             flex-direction: column;
             flex-wrap: wrap;

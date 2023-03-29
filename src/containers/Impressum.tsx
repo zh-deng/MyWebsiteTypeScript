@@ -13,7 +13,9 @@ const Impressum = () => {
                             CEO von MyWebsite GmbH
                         </p>
                     </div>
-                    <img src={ceoPortrait} />
+                    <div className="impressum__content__contact--img">
+                        <img src={ceoPortrait} />
+                    </div>
                 </div>
                 <div className="impressum__content__address">
                     <div className="impressum__content__address--info">
@@ -24,7 +26,9 @@ const Impressum = () => {
                             80643 München
                         </p>
                     </div>
-                    <img src={addressPicture} />
+                    <div className="impressum__content__address--img">
+                        <img src={addressPicture} />
+                    </div>
                 </div>
             </div>
         </div>
