@@ -5,6 +5,7 @@
     &__content {
         @include util.flex-center-all;
         flex-direction: column;
+        width: 100%;
 
         &__hero {
             @include util.dimensions(100%, 50vh);
@@ -49,7 +50,7 @@
         &__jobs {
             @include util.flex-center-all;
             padding: 1rem;
-            width: max(80%, util.rem(375));
+            width: max(80%, util.rem(360));
 
             &__job-container {
                 @include util.flex-center-all;
